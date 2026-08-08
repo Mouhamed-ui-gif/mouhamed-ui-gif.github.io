@@ -102,6 +102,7 @@
 .key-row input { flex: 1; }
 .key-row .icon-btn { padding: .55rem .7rem; }
 .hint { color: #a87690; font-size: .75rem; line-height: 1.5; }
+.builtin { color: #7dd87d; font-size: .8rem; font-weight: 700; margin: 0; }
 .set-status { color: #7dd87d; font-size: .85rem; font-weight: 700; }
 
 .btn { display: inline-block; padding: .7rem 1.3rem; border-radius: 999px; font-weight: 700; font-size: .92rem; cursor: pointer; transition: .25s; text-align: center; text-decoration: none; }

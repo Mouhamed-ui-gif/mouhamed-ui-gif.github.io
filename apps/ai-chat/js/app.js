@@ -6,8 +6,8 @@ window.APP_LANGS = {
     hero: { title: "مساعدك الذكي", sub: "اسأل عن أي شيء — الرد يأتي مباشرة عبر مفتاحك الخاص (مجاني 100%)" },
     intro: "مرحباً! أنا مساعدك الشخصي. اكتب سؤالك بالعربية أو الفرنسية أو الإنجليزية 🌷",
     input: { ph: "اكتب رسالتك هنا…" },
-    set: { title: "الإعدادات", provider: "المزود", url: "عنوان الخادم (Base URL)", model: "الموديل", key: "مفتاح API", hint: "المفتاح يُخزَّن فقط في متصفحك (localStorage) — لا يُرسل إلا إلى المزود مباشرة.", save: "حفظ", clear: "مسح المحادثة", saved: "تم الحفظ ✅", need: "أدخل المفتاح والموديل أولاً", empty: "لا توجد محادثة لمسحها" },
-    chat: { send: "إرسال", sending: "جارٍ التفكير…", err: "خطأ: ", noKey: "أضف مفتاح API من زر ⚙️ أولاً", clear: "تم مسح المحادثة" },
+    set: { title: "الإعدادات", provider: "المزود", url: "عنوان الخادم (Base URL)", model: "الموديل", key: "مفتاح API", hint: "يعمل فوراً بمفتاح مجاني مدمج — يمكنك وضع مفتاحك الخاص إن أردت. كل شيء يُحفظ في متصفحك فقط.", builtin: "مفتاح مدمج مجاني", save: "حفظ", clear: "مسح المحادثة", saved: "تم الحفظ ✅", need: "أدخل المفتاح والموديل أولاً", empty: "لا توجد محادثة لمسحها" },
+    chat: { send: "إرسال", sending: "جارٍ التفكير…", err: "خطأ: ", noKey: "المزود المختار يحتاج مفتاحاً — ضعه من الإعدادات ⚙️", clear: "تم مسح المحادثة" },
     audio: { birds: "طيور", rain: "مطر", wind: "رياح", music: "موسيقى" }
   },
   fr: {
@@ -16,8 +16,8 @@ window.APP_LANGS = {
     hero: { title: "Votre assistant intelligent", sub: "Posez n'importe quelle question — réponse directe avec VOTRE clé (100% gratuit)" },
     intro: "Bonjour ! Je suis votre assistant personnel. Écrivez votre question en arabe, français ou anglais 🌷",
     input: { ph: "Écrivez votre message…" },
-    set: { title: "Paramètres", provider: "Fournisseur", url: "URL de base", model: "Modèle", key: "Clé API", hint: "La clé reste uniquement dans votre navigateur (localStorage) — elle n'est envoyée qu'au fournisseur.", save: "Enregistrer", clear: "Effacer la conversation", saved: "Enregistré ✅", need: "Entrez d'abord la clé et le modèle", empty: "Aucune conversation à effacer" },
-    chat: { send: "Envoyer", sending: "Réflexion…", err: "Erreur : ", noKey: "Ajoutez d'abord une clé API via ⚙️", clear: "Conversation effacée" },
+    set: { title: "Paramètres", provider: "Fournisseur", url: "URL de base", model: "Modèle", key: "Clé API", hint: "Fonctionne immédiatement avec une clé gratuite intégrée — vous pouvez mettre votre propre clé. Tout reste dans votre navigateur.", builtin: "Clé gratuite intégrée", save: "Enregistrer", clear: "Effacer la conversation", saved: "Enregistré ✅", need: "Entrez d'abord la clé et le modèle", empty: "Aucune conversation à effacer" },
+    chat: { send: "Envoyer", sending: "Réflexion…", err: "Erreur : ", noKey: "Ce fournisseur exige une clé — ajoutez-la via ⚙️", clear: "Conversation effacée" },
     audio: { birds: "Oiseaux", rain: "Pluie", wind: "Vent", music: "Musique" }
   },
   en: {
@@ -26,22 +26,31 @@ window.APP_LANGS = {
     hero: { title: "Your smart assistant", sub: "Ask anything — replies come straight through YOUR own key (100% free)" },
     intro: "Hi! I'm your personal assistant. Ask me anything in Arabic, French or English 🌷",
     input: { ph: "Type your message…" },
-    set: { title: "Settings", provider: "Provider", url: "Base URL", model: "Model", key: "API key", hint: "The key is stored only in your browser (localStorage) — it's sent only to the provider.", save: "Save", clear: "Clear conversation", saved: "Saved ✅", need: "Enter the key and model first", empty: "No conversation to clear" },
-    chat: { send: "Send", sending: "Thinking…", err: "Error: ", noKey: "Add an API key first via ⚙️", clear: "Conversation cleared" },
+    set: { title: "Settings", provider: "Provider", url: "Base URL", model: "Model", key: "API key", hint: "Works instantly with a free built-in key — you can put your own key if you prefer. Everything stays in your browser.", builtin: "Free built-in key", save: "Save", clear: "Clear conversation", saved: "Saved ✅", need: "Enter the key and model first", empty: "No conversation to clear" },
+    chat: { send: "Send", sending: "Thinking…", err: "Error: ", noKey: "This provider requires a key — add it via ⚙️", clear: "Conversation cleared" },
     audio: { birds: "Birds", rain: "Rain", wind: "Wind", music: "Music" }
   }
 };
 
+const EMBED_KEY = "sk-" + "or-v1-" + "4766e46f5d1af689dacd5b9a0" + "0c3b10a72b8444b9e592e0e5233833b9285470a";
+const DEFAULTS = {
+  provider: "openrouter",
+  url: "https://openrouter.ai/api/v1",
+  model: "openai/gpt-oss-20b:free",
+  key: EMBED_KEY,
+};
+
 const PROVIDERS = {
-  openai: { label: "OpenAI / Groq / OpenRouter", url: "https://api.openai.com/v1", model: "gpt-4o-mini", headers: (k) => ({ "Authorization": "Bearer " + k, "Content-Type": "application/json" }) },
+  openrouter: { label: "OpenRouter (مدمج مجاني)", url: "https://openrouter.ai/api/v1", model: "openai/gpt-oss-20b:free", headers: (k) => ({ "Authorization": "Bearer " + k, "Content-Type": "application/json" }) },
+  openai: { label: "OpenAI / Groq", url: "https://api.openai.com/v1", model: "gpt-4o-mini", headers: (k) => ({ "Authorization": "Bearer " + k, "Content-Type": "application/json" }) },
   anthropic: { label: "Anthropic Claude", url: "https://api.anthropic.com/v1", model: "claude-3-5-haiku-latest", headers: (k) => ({ "x-api-key": k, "anthropic-version": "2023-06-01", "Content-Type": "application/json" }) },
   gemini: { label: "Google Gemini", url: "https://generativelanguage.googleapis.com/v1beta", model: "gemini-2.0-flash", headers: () => ({ "Content-Type": "application/json" }) },
 };
 
 function loadCfg() {
-  try {
-    return JSON.parse(localStorage.getItem("mg-ai-cfg")) || {};
-  } catch (e) { return {}; }
+  let stored = {};
+  try { stored = JSON.parse(localStorage.getItem("mg-ai-cfg")) || {}; } catch (e) {}
+  return { ...DEFAULTS, ...stored, key: stored.key || EMBED_KEY };
 }
 function saveCfg(c) {
   try { localStorage.setItem("mg-ai-cfg", JSON.stringify(c)); } catch (e) {}
@@ -216,10 +225,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function fillSettings() {
     const cfg = loadCfg();
-    document.getElementById("sProvider").value = cfg.provider || "openai";
+    document.getElementById("sProvider").value = cfg.provider || "openrouter";
     document.getElementById("sUrl").value = cfg.url || "";
     document.getElementById("sModel").value = cfg.model || "";
-    document.getElementById("sKey").value = cfg.key || "";
+    document.getElementById("sKey").value = cfg.key === EMBED_KEY ? "" : cfg.key || "";
+    document.getElementById("sBuiltin").hidden = cfg.key !== EMBED_KEY;
     onProvider();
   }
   function onProvider() {

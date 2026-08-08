@@ -41,8 +41,8 @@
       projects: {
         title: "المشاريع",
         sub: "أعمال بنيتها وبنيتها بيديّ",
-        takeoff: "تطبيق طلب الطعام من تايك أوف لاونج قسنطينة بموسم الخريف: منيو حقيقي، سلة طلب، وحجز عبر واتساب.",
-        aia: "مساعد ذكي بموسم الربيع بمفتاحك الخاص — يبقى في متصفحك فقط، مع دعم OpenAI وAnthropic وGemini.",
+        takeoff: "مستشار ذكي بموسم الخريف يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مجاني مدمج.",
+        aia: "مساعد ذكي بموسم الربيع يرد فوراً بمفتاح مجاني مدمج — أو ضع مفتاحك الخاص إن أردت.",
         timeflash: "ساعة الوقت الفوري بموسم الشتاء: كرونومتر، مؤقّت، وبومودورو مع أجراس تنبيه.",
         myshop: "حزمة الصيف: مولد خطط أعمال، مذاكرة، مولد مواقع HTML، ومترجم — أربع أدوات في تطبيق واحد.",
         hub: "بوابة الأربعة تطبيقات: كل موسم بخلفية فيديو حقيقية وأصوات محيطية مركّبة بالكامل.",
@@ -106,8 +106,8 @@
       projects: {
         title: "Projets",
         sub: "Des projets construits de mes mains",
-        takeoff: "Appli de commande du lounge TakeOff de Constantine, saison automne : vrai menu, panier et réservation WhatsApp.",
-        aia: "Assistant IA saison printemps avec VOTRE clé — elle reste dans votre navigateur, compatible OpenAI, Anthropic et Gemini.",
+        takeoff: "Conseiller intelligent, saison automne, qui construit votre projet étape par étape — fonctionne immédiatement avec une clé gratuite intégrée.",
+        aia: "Assistant IA saison printemps qui répond immédiatement avec une clé gratuite intégrée — ou votre propre clé.",
         timeflash: "Chrono instantané saison hiver : chronomètre, minuteur et pomodoro avec alarmes.",
         myshop: "Kit d'été : générateur de business plans, révision, générateur de sites HTML et traducteur — quatre outils en un.",
         hub: "Portail des quatre apps : chaque saison avec vraie vidéo et ambiances sonores entièrement synthétisées.",
@@ -171,8 +171,8 @@
       projects: {
         title: "Projects",
         sub: "Work I built with my own hands",
-        takeoff: "Food ordering app for the TakeOff Lounge in Constantine, autumn season: real menu, order cart and WhatsApp booking.",
-        aia: "Spring-season smart assistant with YOUR key — it stays in your browser, supporting OpenAI, Anthropic and Gemini.",
+        takeoff: "Autumn-season smart advisor that builds your project plan step by step — works instantly with a free built-in key.",
+        aia: "Spring-season smart assistant that replies instantly with a free built-in key — or your own key.",
         timeflash: "Winter-season instant time clock: stopwatch, timer and pomodoro with alarms.",
         myshop: "Summer Kit: business plan generator, study tool, HTML site generator and translator — four tools in one app.",
         hub: "Portal of the four apps: each season with real video and fully synthesized ambient sounds.",

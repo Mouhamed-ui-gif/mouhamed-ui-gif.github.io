@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="autumn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مساعد المشاريع 🍂</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-season="autumn">
+
+<div class="season-particles"></div>
+
+<div class="bg-video-wrap">
+  <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+    poster="../img/autumn.jpg"
+    src="https://videos.pexels.com/video-files/13779667/13779667-hd_1920_1080_60fps.mp4"></video>
+  <div class="bg-tint"></div>
+</div>
+
+<nav class="topbar">
+  <div class="brand">🍂 <span data-i18n="brand">مساعد المشاريع</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</nav>
+
+<div class="chat-wrap">
+  <header class="chat-hero">
+    <div class="chat-logo">💼</div>
+    <h1 data-i18n="hero.title">مستشار المشاريع الذكي</h1>
+    <p data-i18n="hero.sub">أطلق فكرة مشروعك — سأساعدك في الخطة، السوق، التسويق، وكل شيء. يعمل فوراً</p>
+  </header>
+
+  <div class="chips" id="chips">
+    <button class="chip" data-q="idea" data-i18n="chip.idea">💡 فكرة مشروع</button>
+    <button class="chip" data-q="plan" data-i18n="chip.plan">📋 خطة عمل</button>
+    <button class="chip" data-q="market" data-i18n="chip.market">📊 دراسة السوق</button>
+    <button class="chip" data-q="name" data-i18n="chip.name">🏷 اسم تجاري</button>
+    <button class="chip" data-q="marketing" data-i18n="chip.marketing">📣 خطة تسويق</button>
+  </div>
+
+  <main class="chat-main" id="chatMain">
+    <div class="msg bot intro" id="introMsg">
+      <div class="avatar">💼</div>
+      <div class="bubble" data-i18n="intro">مرحباً! أنا مستشار المشاريع. أخبرني بفكرتك أو اضغط أي زر من الأسفل وسأبني معك مشروعك خطوة بخطوة 🍂</div>
+    </div>
+  </main>
+
+  <form class="chat-input" id="chatForm">
+    <textarea id="chatText" rows="1" data-i18n-ph="input.ph" placeholder="صف فكرة مشروعك…" required></textarea>
+    <button class="send-btn" type="submit" aria-label="send">➤</button>
+  </form>
+</div>
+
+<!-- audio bar -->
+<footer class="audio-bar">
+  <div class="audio-group">
+    <button class="audio-chip" data-audio="leaves">🍂 <span data-i18n="audio.leaves">أوراق</span></button>
+    <button class="audio-chip" data-audio="rain">🌧 <span data-i18n="audio.rain">مطر</span></button>
+    <button class="audio-chip" data-audio="thunder">⛈ <span data-i18n="audio.thunder">رعد</span></button>
+    <button class="audio-chip" data-audio="wind">💨 <span data-i18n="audio.wind">رياح</span></button>
+    <button class="audio-chip" data-audio="fire">🔥 <span data-i18n="audio.fire">نار</span></button>
+    <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+  </div>
+  <div class="audio-vol">
+    <input type="range" id="vol" min="0" max="1" step="0.05" value="0.5" aria-label="volume">
+  </div>
+</footer>
+
+<script>window.APP_BASE="../";</script>
+<script src="../js/audio.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
