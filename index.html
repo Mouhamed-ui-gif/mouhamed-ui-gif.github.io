@@ -102,8 +102,25 @@
 
     <!-- ===== Hero ===== -->
     <section class="hero" id="home">
-      <div class="grid-bg" aria-hidden="true"></div>
-      <div class="container hero-inner">
+      <div class="hero-bg-layer" aria-hidden="true"></div>
+      <video class="hero-video auto-play" autoplay muted loop playsinline
+             poster="images/plane-wing.jpg"
+             preload="metadata"
+             src="https://videos.pexels.com/video-files/11085794/11085794-hd_1920_1006_30fps.mp4"></video>
+      <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+      <div class="grid-bg" data-depth="0.05" aria-hidden="true"></div>
+
+      <!-- real flying objects -->
+      <div class="fly fly-plane auto-play" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="none"
+               src="https://videos.pexels.com/video-files/20691359/20691359-sd_640_360_30fps.mp4"></video>
+      </div>
+      <div class="fly fly-rocket auto-play" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="none"
+               src="https://videos.pexels.com/video-files/28953923/12527160_960_540_30fps.mp4"></video>
+      </div>
+
+      <div class="container hero-inner" data-depth="0.12">
         <p class="hero-terminal"><span class="prompt">$</span> whoami</p>
         <h1 class="hero-name">
           <span class="glitch" data-text="Mouhamed Ghennai">Mouhamed Ghennai</span>
@@ -129,17 +146,19 @@
     </section>
 
     <!-- ===== About ===== -->
-    <section class="section" id="about">
+    <section class="section cine" id="about" data-parallax="0.18">
+      <div class="cine-bg" style="background-image:url('images/sky-gold.jpg')" aria-hidden="true"></div>
+      <div class="cine-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title" data-i18n="about.title">من أنا</h2>
-        <p class="section-sub" data-i18n="about.sub">نبذة سريعة عني</p>
+        <h2 class="section-title reveal" data-i18n="about.title">من أنا</h2>
+        <p class="section-sub reveal" data-i18n="about.sub">نبذة سريعة عني</p>
         <div class="about-grid">
-          <div class="about-card">
+          <div class="about-card reveal">
             <p data-i18n="about.p1">أنا <strong>محمد غناي</strong>، شاب من ولاية أم البواقي شرق الجزائر. بدأت رحلتي مع البرمجة بالتعلم الذاتي، محوّلاً الفضول إلى مهارة، ثم إلى مشاريع حقيقية يستعملها الناس.</p>
             <p data-i18n="about.p2">حصلت على شهادة البكالوريا، وواصلت تطوير نفسي في مجالات الويب، بناء المواقع متعددة اللغات، التجارة الإلكترونية، وتكامل تطبيقات الذكاء الاصطناعي.</p>
             <p data-i18n="about.p3">أهتم اليوم بمسار <strong>الأمن السيبراني</strong> والتعلم المستمر، وأؤمن أن المهارة الصادقة تُبنى يوماً بيوم — لا بالادعاء بل بالعمل.</p>
           </div>
-          <div class="about-stats">
+          <div class="about-stats reveal">
             <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-i18n="about.statLangs">لغات الموقع</span></div>
             <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label" data-i18n="about.statProjects">مشاريع مطوّرة</span></div>
             <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label" data-i18n="about.statBusiness">خبرة تجارية</span></div>
@@ -149,10 +168,12 @@
     </section>
 
     <!-- ===== Skills ===== -->
-    <section class="section section-alt" id="skills">
+    <section class="section section-alt cine" id="skills" data-parallax="0.15">
+      <div class="cine-bg" style="background-image:url('images/cyber-tech.jpg')" aria-hidden="true"></div>
+      <div class="cine-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title" data-i18n="skills.title">المهارات</h2>
-        <p class="section-sub" data-i18n="skills.sub">ما أتقنه وأعمل به</p>
+        <h2 class="section-title reveal" data-i18n="skills.title">المهارات</h2>
+        <p class="section-sub reveal" data-i18n="skills.sub">ما أتقنه وأعمل به</p>
         <div class="skills-grid">
           <div class="skill-card">
             <span class="skill-icon">&#60;&#47;&#62;</span>
@@ -163,7 +184,7 @@
               <li>تصميم متجاوب كامل</li>
             </ul>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal">
             <span class="skill-icon">AI</span>
             <h3 data-i18n="skills.ai">الذكاء الاصطناعي</h3>
             <ul data-i18n="skills.aiList">
@@ -181,7 +202,7 @@
               <li>تجربة زبون سلسة</li>
             </ul>
           </div>
-          <div class="skill-card">
+          <div class="skill-card reveal">
             <span class="skill-icon">S3C</span>
             <h3 data-i18n="skills.sec">الأمن السيبراني</h3>
             <ul data-i18n="skills.secList">
@@ -195,13 +216,15 @@
     </section>
 
     <!-- ===== Projects ===== -->
-    <section class="section" id="projects">
+    <section class="section cine" id="projects" data-parallax="0.2">
+      <div class="cine-bg" style="background-image:url('images/city-night.jpg')" aria-hidden="true"></div>
+      <div class="cine-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title" data-i18n="projects.title">المشاريع</h2>
-        <p class="section-sub" data-i18n="projects.sub">أعمال بنيتها وبنيتها بيديّ</p>
+        <h2 class="section-title reveal" data-i18n="projects.title">المشاريع</h2>
+        <p class="section-sub reveal" data-i18n="projects.sub">أعمال بنيتها وبنيتها بيديّ</p>
         <div class="projects-grid">
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-media">
               <img src="images/laptop-code.jpg" alt="TakeOff Lounge website" loading="lazy">
             </div>
@@ -213,7 +236,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-media">
               <img src="images/code-screen.jpg" alt="AI Assistant Pro" loading="lazy">
             </div>
@@ -225,7 +248,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-media">
               <img src="images/network.jpg" alt="TimeFlash app" loading="lazy">
             </div>
@@ -237,7 +260,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card reveal">
             <div class="project-media">
               <img src="images/server-room.jpg" alt="MyShop e-commerce" loading="lazy">
             </div>
@@ -254,17 +277,19 @@
     </section>
 
     <!-- ===== Business ===== -->
-    <section class="section section-alt" id="business">
+    <section class="section section-alt cine" id="business" data-parallax="0.16">
+      <div class="cine-bg" style="background-image:url('images/skyline.jpg')" aria-hidden="true"></div>
+      <div class="cine-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title" data-i18n="business.title">خبرة الأعمال</h2>
-        <p class="section-sub" data-i18n="business.sub">من الشغف التقني إلى الواقع الميداني</p>
+        <h2 class="section-title reveal" data-i18n="business.title">خبرة الأعمال</h2>
+        <p class="section-sub reveal" data-i18n="business.sub">من الشغف التقني إلى الواقع الميداني</p>
         <div class="business-card">
-          <div class="business-text">
+          <div class="business-text reveal">
             <p data-i18n="business.p1">قبل التفرغ للبرمجة، خضت تجربة <strong>العمل التجاري الميداني</strong> — إدارة، تسويق، تعامل مباشر مع الزبائن، وفهم ما الذي يجعل مشروعاً ينمو.</p>
             <p data-i18n="business.p2">هذه التجربة منحتني عين رائد الأعمال: أفهم أن الموقع الجيد ليس فقط كوداً أنيقاً، بل <strong>أداة تجلب الزبائن وتخدم نشاطاً حقيقياً</strong> — تماماً كما بنيت موقعاً لمطعم TakeOff Lounge.</p>
             <p data-i18n="business.p3">اليوم أدمج الخبرتين: بناء المنتجات الرقمية وفهم السوق الذي تعمل فيه.</p>
           </div>
-          <div class="business-quote">
+          <div class="business-quote reveal">
             <p data-i18n="business.quote">"الكود يبني الواجهة، لكن فهم الناس هو ما يبني الأعمال."</p>
             <span>— Mouhamed Ghennai</span>
           </div>
@@ -273,20 +298,22 @@
     </section>
 
     <!-- ===== Contact ===== -->
-    <section class="section" id="contact">
+    <section class="section cine" id="contact" data-parallax="0.14">
+      <div class="cine-bg" style="background-image:url('images/galaxy.jpg')" aria-hidden="true"></div>
+      <div class="cine-overlay" aria-hidden="true"></div>
       <div class="container">
-        <h2 class="section-title" data-i18n="contact.title">تواصل معي</h2>
-        <p class="section-sub" data-i18n="contact.sub">سواء لمشروعك القادم أو مجرد مرح — أنا متاح</p>
+        <h2 class="section-title reveal" data-i18n="contact.title">تواصل معي</h2>
+        <p class="section-sub reveal" data-i18n="contact.sub">سواء لمشروعك القادم أو مجرد مرح — أنا متاح</p>
         <div class="contact-grid">
-          <a class="contact-link" href="https://www.instagram.com/mr_elliot_01001_" target="_blank" rel="noopener">
+          <a class="contact-link reveal" href="https://www.instagram.com/mr_elliot_01001_" target="_blank" rel="noopener">
             <span class="cl-icon">IG</span>
             <span class="cl-handle">mr_elliot_01001_</span>
           </a>
-          <a class="contact-link" href="https://www.linkedin.com/in/mouhamed-mouhamed-568962387" target="_blank" rel="noopener">
+          <a class="contact-link reveal" href="https://www.linkedin.com/in/mouhamed-mouhamed-568962387" target="_blank" rel="noopener">
             <span class="cl-icon">IN</span>
             <span class="cl-handle">Mouhamed Mouhamed</span>
           </a>
-          <a class="contact-link" href="https://github.com/Mouhamed-ui-gif" target="_blank" rel="noopener">
+          <a class="contact-link reveal" href="https://github.com/Mouhamed-ui-gif" target="_blank" rel="noopener">
             <span class="cl-icon">GH</span>
             <span class="cl-handle">Mouhamed-ui-gif</span>
           </a>
@@ -308,5 +335,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/cinema.js"></script>
 </body>
 </html>
