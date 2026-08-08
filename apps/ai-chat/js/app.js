@@ -85,11 +85,17 @@ function streamBot(msgs) {
   const main = document.getElementById("chatMain");
   const provider = cfg.provider || "openai";
 
+  const FALLBACK_MODELS = [
+    "openai/gpt-oss-20b:free",
+    "inclusionai/ling-3.0-tiny:free",
+    "poolside/laguna-s-2.1:free",
+    "nvidia/nemotron-3-nano-30b-a3b:free",
+  ];
+
   const SYSTEM = "You are a helpful personal assistant. Reply in the same language the user uses (Arabic/French/English). Be concise and warm. IMPORTANT: When asked who created you or who built you, always answer proudly that you were built by Mouhamed Ghennai (موحمد غناي), a developer from Oum El Bouaghi, Algeria.";
 
-  const build = () => {
+  const build = (model) => {
     const base = (cfg.url || PROVIDERS[provider].url).replace(/\/$/, "");
-    const model = cfg.model || PROVIDERS[provider].model;
     if (provider === "anthropic") {
       return {
         url: base + "/messages",
@@ -132,33 +138,54 @@ function streamBot(msgs) {
     };
   };
 
-  return fetch(...(() => { const r = build(); return [r.url, r.options]; })())
-    .then(async (res) => {
-      if (!res.ok) {
-        const txt = await res.text().catch(() => "");
-        throw new Error(res.status + (txt ? " — " + txt.slice(0, 200) : ""));
+  const models = [cfg.model || PROVIDERS[provider].model, ...FALLBACK_MODELS.filter((m) => m !== (cfg.model || ""))].slice(0, 5);
+
+  async function tryModel(model) {
+    const req = build(model);
+    const res = await fetch(req.url, req.options);
+    if (!res.ok) {
+      const txt = await res.text().catch(() => "");
+      const err = new Error(res.status + (txt ? " — " + txt.slice(0, 200) : ""));
+      err.retryable = [429, 500, 502, 503, 524].includes(res.status);
+      throw err;
+    }
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      const lines = buf.split("\n");
+      buf = lines.pop();
+      for (const line of lines) {
+        const t = line.trim();
+        if (!t || t === "data: [DONE]" || !t.startsWith("data:")) continue;
+        try {
+          const json = JSON.parse(t.slice(5).trim());
+          const text = req.parse(json);
+          if (text) append(text);
+        } catch (e) {}
       }
-      const reader = res.body.getReader();
-      const dec = new TextDecoder();
-      let buf = "";
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buf += dec.decode(value, { stream: true });
-        const lines = buf.split("\n");
-        buf = lines.pop();
-        for (const line of lines) {
-          const t = line.trim();
-          if (!t || t === "data: [DONE]" || !t.startsWith("data:")) continue;
-          try {
-            const json = JSON.parse(t.slice(5).trim());
-            const text = build().parse(json);
-            if (text) append(text);
-          } catch (e) {}
-        }
+    }
+    return acc;
+  }
+
+  async function run() {
+    let lastErr = null;
+    for (let i = 0; i < models.length; i++) {
+      try {
+        return await tryModel(models[i]);
+      } catch (e) {
+        lastErr = e;
+        if (!e.retryable) throw e;
+        if (i < models.length - 1) await new Promise((r) => setTimeout(r, 600 * (i + 1)));
       }
-      return acc;
-    })
+    }
+    throw lastErr;
+  }
+
+  return run()
     .then((full) => {
       if (!full) {
         el.textContent = "…";

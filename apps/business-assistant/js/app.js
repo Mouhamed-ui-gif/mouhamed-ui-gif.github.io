@@ -6,6 +6,13 @@ const CFG = {
   key: EMBED_KEY,
 };
 
+const FALLBACK_MODELS = [
+  "openai/gpt-oss-20b:free",
+  "inclusionai/ling-3.0-tiny:free",
+  "poolside/laguna-s-2.1:free",
+  "nvidia/nemotron-3-nano-30b-a3b:free",
+];
+
 window.APP_LANGS = {
   ar: {
     meta: { title: "مساعد المشاريع 🍂" },
@@ -78,21 +85,24 @@ async function ask(text) {
     { role: "system", content: SYSTEM },
     { role: "user", content: text },
   ];
+  const models = [CFG.model, ...FALLBACK_MODELS.filter((m) => m !== CFG.model)].slice(0, 5);
+  const setText = (v) => { el.textContent = v; main.scrollTop = main.scrollHeight; };
 
-  try {
+  const tryModel = async (model) => {
     const res = await fetch(CFG.url + "/chat/completions", {
       method: "POST",
       headers: { "Authorization": "Bearer " + CFG.key, "Content-Type": "application/json" },
-      body: JSON.stringify({ model: CFG.model, stream: true, messages: msgs }),
+      body: JSON.stringify({ model, stream: true, messages: msgs }),
     });
     if (!res.ok) {
       const t = await res.text().catch(() => "");
-      throw new Error(res.status + (t ? " — " + t.slice(0, 160) : ""));
+      const err = new Error(res.status + (t ? " — " + t.slice(0, 160) : ""));
+      err.retryable = [429, 500, 502, 503, 524].includes(res.status);
+      throw err;
     }
     const reader = res.body.getReader();
     const dec = new TextDecoder();
     let buf = "", acc = "";
-    const setText = (v) => { el.textContent = v; main.scrollTop = main.scrollHeight; };
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -109,15 +119,32 @@ async function ask(text) {
         } catch (e) {}
       }
     }
-    el.classList.remove("loading");
-    addCopyBtn(el, acc);
+    return acc;
+  };
+
+  let lastErr = null;
+  try {
+    for (let i = 0; i < models.length; i++) {
+      try {
+        const acc = await tryModel(models[i]);
+        el.classList.remove("loading");
+        addCopyBtn(el, acc);
+        sendBtn.disabled = false;
+        return;
+      } catch (e) {
+        lastErr = e;
+        if (!e.retryable) throw e;
+        if (i < models.length - 1) await new Promise((r) => setTimeout(r, 600 * (i + 1)));
+      }
+    }
+    throw lastErr;
   } catch (e) {
     el.classList.remove("loading");
     const dict = d();
     el.innerHTML = `<span class="err">${dict.chat.err}${e.message}</span>`;
     el.classList.add("err");
+    sendBtn.disabled = false;
   }
-  sendBtn.disabled = false;
 }
 
 function addCopyBtn(bubble, text) {
