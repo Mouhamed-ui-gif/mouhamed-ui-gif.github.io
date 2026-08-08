@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="winter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TimeFlash ❄️</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-season="winter">
+
+<div class="season-particles"></div>
+
+<div class="bg-video-wrap">
+  <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+    poster="../img/winter.jpg"
+    src="https://videos.pexels.com/video-files/28650446/12442878_1920_1080_24fps.mp4"></video>
+  <div class="bg-tint"></div>
+</div>
+
+<nav class="topbar">
+  <div class="brand">❄️ <span data-i18n="brand">TimeFlash</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</nav>
+
+<main class="tf-wrap">
+  <header class="tf-head reveal">
+    <h1 data-i18n="head.title">ساعة الوقت الفوري</h1>
+    <p data-i18n="head.sub">كرونومتر، مؤقّت، وبومودورو — بلمسة شتوية</p>
+  </header>
+
+  <div class="tf-tabs reveal" id="tfTabs">
+    <button class="ttab on" data-mode="stopwatch" data-i18n="tab.stopwatch">كرونومتر</button>
+    <button class="ttab" data-mode="timer" data-i18n="tab.timer">مؤقّت</button>
+    <button class="ttab" data-mode="pomodoro" data-i18n="tab.pomodoro">بومودورو</button>
+  </div>
+
+  <div class="tf-display reveal" id="tfDisplay">00:00:00</div>
+
+  <div class="tf-controls reveal" id="tfControls">
+    <button class="ctl reset" id="btnReset" data-i18n="ctl.reset">تصفير</button>
+    <button class="ctl start" id="btnStart" data-i18n="ctl.start">بدء</button>
+    <button class="ctl lap" id="btnLap" data-i18n="ctl.lap">لفة</button>
+  </div>
+
+  <!-- timer presets -->
+  <div class="presets reveal" id="presets">
+    <button class="preset" data-m="1" data-i18n="preset.1m">1 دقيقة</button>
+    <button class="preset" data-m="5" data-i18n="preset.5m">5 دقائق</button>
+    <button class="preset" data-m="15" data-i18n="preset.15m">15 دقيقة</button>
+    <button class="preset" data-m="30" data-i18n="preset.30m">30 دقيقة</button>
+    <button class="preset" data-m="60" data-i18n="preset.60m">60 دقيقة</button>
+    <button class="preset" data-m="custom" data-i18n="preset.custom">مخصص…</button>
+  </div>
+
+  <!-- pomodoro -->
+  <div class="pomo reveal" id="pomoBar">
+    <div class="pomo-phase" id="pomoPhase" data-i18n="pomo.work">وقت العمل</div>
+    <div class="pomo-cycles" id="pomoCycles"></div>
+  </div>
+
+  <div class="laps reveal" id="laps"></div>
+  <div class="pomo-sessions" id="pomoSessions" hidden>
+    <p data-i18n="pomo.done">دورة مكتملة! خذ استراحة 🌲</p>
+    <button class="ctl lap" id="btnPomoReset" data-i18n="ctl.reset">تصفير</button>
+  </div>
+</main>
+
+<!-- audio bar -->
+<footer class="audio-bar">
+  <div class="audio-group">
+    <button class="audio-chip" data-audio="snow">❄ <span data-i18n="audio.snow">ثلج</span></button>
+    <button class="audio-chip" data-audio="wind">💨 <span data-i18n="audio.wind">رياح</span></button>
+    <button class="audio-chip" data-audio="fire">🔥 <span data-i18n="audio.fire">نار</span></button>
+    <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+  </div>
+  <div class="audio-vol">
+    <input type="range" id="vol" min="0" max="1" step="0.05" value="0.5" aria-label="volume">
+  </div>
+</footer>
+
+<script>window.APP_BASE="../";</script>
+<script src="../js/audio.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

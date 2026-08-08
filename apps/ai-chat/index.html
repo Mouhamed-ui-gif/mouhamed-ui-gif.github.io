@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="spring">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Chat 🌸</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-season="spring">
+
+<div class="season-particles"></div>
+
+<div class="bg-video-wrap">
+  <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+    poster="../img/spring.jpg"
+    src="https://videos.pexels.com/video-files/31389352/13394041_2048_1080_30fps.mp4"></video>
+  <div class="bg-tint"></div>
+</div>
+
+<nav class="topbar">
+  <div class="brand">🌸 <span data-i18n="brand">AI Chat</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+  <button class="icon-btn" id="settingsBtn" aria-label="settings">⚙️</button>
+</nav>
+
+<div class="chat-wrap">
+  <header class="chat-hero">
+    <div class="chat-logo">🌸</div>
+    <h1 data-i18n="hero.title">مساعدك الذكي</h1>
+    <p data-i18n="hero.sub">اسأل عن أي شيء — الرد يأتي مباشرة عبر مفتاحك الخاص (مجاني 100%)</p>
+  </header>
+
+  <main class="chat-main" id="chatMain">
+    <div class="msg bot intro" id="introMsg">
+      <div class="avatar">🌸</div>
+      <div class="bubble" data-i18n="intro">مرحباً! أنا مساعدك الشخصي. اكتب سؤالك بالعربية أو الفرنسية أو الإنجليزية 🌷</div>
+    </div>
+  </main>
+
+  <form class="chat-input" id="chatForm">
+    <textarea id="chatText" rows="1" data-i18n-ph="input.ph" placeholder="اكتب رسالتك هنا…" required></textarea>
+    <button class="send-btn" type="submit" aria-label="send">➤</button>
+  </form>
+</div>
+
+<!-- settings -->
+<div class="settings" id="settings" aria-hidden="true">
+  <div class="settings-head">
+    <h3 data-i18n="set.title">الإعدادات</h3>
+    <button class="cart-close" id="settingsClose" aria-label="close">✕</button>
+  </div>
+  <div class="settings-body">
+    <label class="field">
+      <span data-i18n="set.provider">المزود</span>
+      <select id="sProvider">
+        <option value="openai">OpenAI / Groq / OpenRouter (متوافق)</option>
+        <option value="anthropic">Anthropic Claude</option>
+        <option value="gemini">Google Gemini</option>
+      </select>
+    </label>
+    <label class="field">
+      <span data-i18n="set.url">عنوان الخادم (Base URL)</span>
+      <input id="sUrl" type="url" placeholder="https://api.openai.com/v1">
+    </label>
+    <label class="field">
+      <span data-i18n="set.model">الموديل</span>
+      <input id="sModel" type="text" placeholder="gpt-4o-mini">
+    </label>
+    <label class="field">
+      <span data-i18n="set.key">مفتاح API</span>
+      <div class="key-row">
+        <input id="sKey" type="password" placeholder="sk-…">
+        <button type="button" id="sKeyToggle" class="icon-btn" aria-label="show">👁</button>
+      </div>
+      <small class="hint" data-i18n="set.hint">المفتاح يُخزَّن فقط في متصفحك (localStorage) — لا يُرسل إلا إلى المزود مباشرة.</small>
+    </label>
+    <button class="btn primary" id="sSave" data-i18n="set.save">حفظ</button>
+    <button class="btn ghost" id="sClear" data-i18n="set.clear">مسح المحادثة</button>
+    <p class="set-status" id="sStatus" hidden></p>
+  </div>
+</div>
+<div class="cart-overlay" id="settingsOverlay"></div>
+
+<!-- audio bar -->
+<footer class="audio-bar">
+  <div class="audio-group">
+    <button class="audio-chip" data-audio="birds">🐦 <span data-i18n="audio.birds">طيور</span></button>
+    <button class="audio-chip" data-audio="rain">🌧 <span data-i18n="audio.rain">مطر</span></button>
+    <button class="audio-chip" data-audio="wind">💨 <span data-i18n="audio.wind">رياح</span></button>
+    <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+  </div>
+  <div class="audio-vol">
+    <input type="range" id="vol" min="0" max="1" step="0.05" value="0.5" aria-label="volume">
+  </div>
+</footer>
+
+<script>window.APP_BASE="../";</script>
+<script src="../js/audio.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

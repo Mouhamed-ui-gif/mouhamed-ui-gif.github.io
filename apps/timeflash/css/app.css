@@ -1,0 +1,79 @@
+[data-season="winter"] {
+  --c-accent: #38bdf8;
+  --c-accent2: #818cf8;
+  --c-card: rgba(20, 34, 54, .75);
+  --c-grad: linear-gradient(140deg, #7dd3fc 0%, #38bdf8 50%, #818cf8 100%);
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .7rem 1.2rem; background: rgba(12, 22, 38, .82); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(125, 211, 252, .25);
+}
+.topbar .brand { font-weight: 800; color: #d9f2ff; letter-spacing: .4px; }
+.langs { display: flex; gap: .35rem; }
+.langs button {
+  background: transparent; color: #9dc9e2; border: 1px solid rgba(217, 242, 255, .2);
+  border-radius: 999px; padding: .35rem .8rem; cursor: pointer; font-size: .8rem; transition: .25s;
+}
+.langs button.is-active { background: var(--c-grad); color: #06121f; border-color: transparent; font-weight: 700; }
+
+.tf-wrap { max-width: 760px; margin: 0 auto; padding: 2.4rem 1.2rem 7rem; text-align: center; }
+.tf-head h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); color: #d9f2ff; margin: 0 0 .4rem; }
+.tf-head p { color: #9dc9e2; margin: 0; }
+
+.tf-tabs { display: flex; gap: .5rem; justify-content: center; margin: 1.6rem 0 1.4rem; flex-wrap: wrap; }
+.ttab {
+  background: rgba(217, 242, 255, .07); color: #bcd8ec; border: 1px solid rgba(125, 211, 252, .3);
+  border-radius: 999px; padding: .55rem 1.2rem; cursor: pointer; font-size: .9rem; transition: .25s;
+}
+.ttab.on { background: var(--c-grad); color: #06121f; border-color: transparent; font-weight: 700; }
+
+.tf-display {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 700; letter-spacing: 2px;
+  color: #eaf7ff; text-shadow: 0 0 30px rgba(56, 189, 248, .45);
+  padding: 1.4rem; border-radius: 22px;
+  background: var(--c-card); border: 1px solid rgba(125, 211, 252, .25);
+  backdrop-filter: blur(8px);
+}
+.tf-display.running { text-shadow: 0 0 40px rgba(56, 189, 248, .8); }
+.tf-display.alert { animation: pulseAlert 1s infinite; border-color: rgba(248, 113, 113, .7); color: #fecaca; text-shadow: 0 0 40px rgba(248,113,113,.6); }
+@keyframes pulseAlert { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+
+.tf-controls { display: flex; gap: .8rem; justify-content: center; margin-top: 1.6rem; }
+.ctl {
+  min-width: 96px; padding: .7rem 1.4rem; border-radius: 999px; cursor: pointer; font-weight: 700;
+  font-size: .95rem; transition: .25s; border: 1px solid rgba(125, 211, 252, .4);
+  background: rgba(217, 242, 255, .07); color: #d9f2ff;
+}
+.ctl:hover { background: rgba(217, 242, 255, .16); }
+.ctl.start { background: var(--c-grad); color: #06121f; border-color: transparent; }
+.ctl.start:hover { filter: brightness(1.12); transform: translateY(-2px); }
+.ctl.start.paused { background: rgba(248, 113, 113, .9); color: #fff; }
+
+.presets { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.preset {
+  background: rgba(217, 242, 255, .06); color: #bcd8ec; border: 1px solid rgba(125, 211, 252, .25);
+  border-radius: 12px; padding: .45rem .9rem; cursor: pointer; font-size: .82rem; transition: .25s;
+}
+.preset:hover { background: rgba(125, 211, 252, .18); border-color: var(--c-accent); }
+.preset.on { background: var(--c-grad); color: #06121f; font-weight: 700; border-color: transparent; }
+
+.pomo { margin-top: 1.4rem; display: none; flex-direction: column; gap: .6rem; align-items: center; }
+.pomo.show { display: flex; }
+.pomo-phase { font-size: 1.1rem; font-weight: 800; color: #d9f2ff; }
+.pomo-cycles { display: flex; gap: .4rem; }
+.pomo-cycles span { width: 12px; height: 12px; border-radius: 50%; background: rgba(125,211,252,.25); }
+.pomo-cycles span.on { background: #f59e0b; box-shadow: 0 0 10px rgba(245,158,11,.7); }
+.pomo-cycles span.done { background: #4ade80; }
+
+.laps { margin-top: 1.4rem; display: flex; flex-direction: column; gap: .4rem; max-height: 200px; overflow-y: auto; }
+.lap-row {
+  display: flex; justify-content: space-between; padding: .5rem .9rem; border-radius: 10px;
+  background: rgba(217, 242, 255, .05); border: 1px solid rgba(125, 211, 252, .15);
+  color: #bcd8ec; font-family: ui-monospace, Menlo, monospace; font-size: .9rem;
+}
+.pomo-sessions { margin-top: 1.4rem; color: #baf3ba; font-weight: 700; display: flex; flex-direction: column; gap: .8rem; align-items: center; }
+.pomo-sessions p { margin: 0; }

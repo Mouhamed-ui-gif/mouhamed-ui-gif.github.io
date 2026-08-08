@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="hub">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مركز المواسم 🌐</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hub.css">
+</head>
+<body data-season="hub">
+
+<nav class="topbar">
+  <div class="brand">🌐 <span data-i18n="brand">مركز المواسم</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</nav>
+
+<header class="hub-hero">
+  <div class="hub-hero-in">
+    <span class="season-badge">🎡</span>
+    <h1 data-i18n="hero.title">أربعة مواسم · أربعة تطبيقات</h1>
+    <p data-i18n="hero.sub">كل تطبيق بموسمه الخاص، أجواء فيديو حقيقية، وأصوات محيطية مركّبة بالكامل — مجاناً 100%</p>
+  </div>
+</header>
+
+<main class="hub-grid">
+  <a class="app-card reveal" href="takeoff-order/" data-accent="#e8890c">
+    <div class="app-emoji">🍂</div>
+    <h2 data-i18n="a1.name">TakeOff Order</h2>
+    <p data-i18n="a1.desc">اطلب أطباق تايك أوف لاونج قسنطينة مع سلة كاملة وحجز عبر واتساب</p>
+    <span class="app-arrow">→</span>
+  </a>
+  <a class="app-card reveal" href="ai-chat/" data-accent="#e91e8c">
+    <div class="app-emoji">🌸</div>
+    <h2 data-i18n="a2.name">AI Chat</h2>
+    <p data-i18n="a2.desc">مساعد ذكي بمفتاحك الخاص — يبقى في متصفحك فقط، مجاني بالكامل</p>
+    <span class="app-arrow">→</span>
+  </a>
+  <a class="app-card reveal" href="timeflash/" data-accent="#38bdf8">
+    <div class="app-emoji">❄️</div>
+    <h2 data-i18n="a3.name">TimeFlash</h2>
+    <p data-i18n="a3.desc">كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه</p>
+    <span class="app-arrow">→</span>
+  </a>
+  <a class="app-card reveal" href="summerkit/" data-accent="#f59e0b">
+    <div class="app-emoji">☀️</div>
+    <h2 data-i18n="a4.name">Summer Kit</h2>
+    <p data-i18n="a4.desc">خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة</p>
+    <span class="app-arrow">→</span>
+  </a>
+</main>
+
+<p class="hub-back"><a href="../index.html" data-i18n="back">← العودة إلى الموقع الشخصي</a></p>
+
+<footer class="audio-bar">
+  <div class="audio-group">
+    <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+    <button class="audio-chip" data-audio="rain">🌧 <span data-i18n="audio.rain">مطر</span></button>
+  </div>
+  <div class="audio-vol">
+    <input type="range" id="vol" min="0" max="1" step="0.05" value="0.5" aria-label="volume">
+  </div>
+</footer>
+
+<script>window.APP_BASE="./";</script>
+<script src="js/audio.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/cinema.js"></script>
+<script>
+window.APP_LANGS = {
+  ar: {
+    meta: { title: "مركز المواسم 🌐" },
+    brand: "مركز المواسم",
+    hero: { title: "أربعة مواسم · أربعة تطبيقات", sub: "كل تطبيق بموسمه الخاص، أجواء فيديو حقيقية، وأصوات محيطية مركّبة بالكامل — مجاناً 100%" },
+    a1: { name: "TakeOff Order", desc: "اطلب أطباق تايك أوف لاونج قسنطينة مع سلة كاملة وحجز عبر واتساب" },
+    a2: { name: "AI Chat", desc: "مساعد ذكي بمفتاحك الخاص — يبقى في متصفحك فقط، مجاني بالكامل" },
+    a3: { name: "TimeFlash", desc: "كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه" },
+    a4: { name: "Summer Kit", desc: "خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة" },
+    back: "← العودة إلى الموقع الشخصي",
+    audio: { music: "موسيقى", rain: "مطر" }
+  },
+  fr: {
+    meta: { title: "Centre des Saisons 🌐" },
+    brand: "Centre des Saisons",
+    hero: { title: "Quatre saisons · Quatre applications", sub: "Chaque app a sa saison, des vraies vidéos et des ambiances sonores entièrement synthétisées — 100% gratuit" },
+    a1: { name: "TakeOff Order", desc: "Commandez chez TakeOff Lounge Constantine avec panier complet et réservation WhatsApp" },
+    a2: { name: "AI Chat", desc: "Assistant intelligent avec VOTRE clé — elle reste dans votre navigateur, entièrement gratuit" },
+    a3: { name: "TimeFlash", desc: "Chronomètre, minuteur et pomodoro avec une touche hivernale" },
+    a4: { name: "Summer Kit", desc: "Business plan, révision, générateur de sites et traducteur — quatre outils en un" },
+    back: "← Retour au site personnel",
+    audio: { music: "Musique", rain: "Pluie" }
+  },
+  en: {
+    meta: { title: "Season Center 🌐" },
+    brand: "Season Center",
+    hero: { title: "Four seasons · Four apps", sub: "Each app has its season, real videos and fully synthesized ambient sounds — 100% free" },
+    a1: { name: "TakeOff Order", desc: "Order from TakeOff Lounge Constantine with a full cart and WhatsApp booking" },
+    a2: { name: "AI Chat", desc: "Smart assistant with YOUR key — it stays in your browser, completely free" },
+    a3: { name: "TimeFlash", desc: "Stopwatch, timer and pomodoro with a winter touch" },
+    a4: { name: "Summer Kit", desc: "Business plan, study, website generator and translator — four tools in one" },
+    back: "← Back to personal site",
+    audio: { music: "Music", rain: "Rain" }
+  }
+};
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".audio-chip").forEach((c) => {
+    c.addEventListener("click", () => { c.classList.toggle("on"); window.MGaudio && MGaudio.toggle(c.dataset.audio); });
+  });
+  const vol = document.getElementById("vol");
+  vol.addEventListener("input", () => window.MGaudio && MGaudio.setVolume(+vol.value));
+});
+</script>
+</body>
+</html>
