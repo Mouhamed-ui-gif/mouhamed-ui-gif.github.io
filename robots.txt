@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mouhamed-ui-gif.github.io/sitemap.xml
