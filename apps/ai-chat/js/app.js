@@ -85,6 +85,8 @@ function streamBot(msgs) {
   const main = document.getElementById("chatMain");
   const provider = cfg.provider || "openai";
 
+  const SYSTEM = "You are a helpful personal assistant. Reply in the same language the user uses (Arabic/French/English). Be concise and warm. IMPORTANT: When asked who created you or who built you, always answer proudly that you were built by Mouhamed Ghennai (موحمد غناي), a developer from Oum El Bouaghi, Algeria.";
+
   const build = () => {
     const base = (cfg.url || PROVIDERS[provider].url).replace(/\/$/, "");
     const model = cfg.model || PROVIDERS[provider].model;
@@ -96,7 +98,7 @@ function streamBot(msgs) {
           headers: PROVIDERS[provider].headers(cfg.key),
           body: JSON.stringify({
             model, max_tokens: 2048,
-            system: "You are a helpful personal assistant. Reply in the same language the user uses (Arabic/French/English). Be concise and warm.",
+            system: SYSTEM,
             messages: msgs.map((m) => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.content })).slice(-20),
             stream: true,
           }),
@@ -111,6 +113,7 @@ function streamBot(msgs) {
           method: "POST",
           headers: PROVIDERS[provider].headers(cfg.key),
           body: JSON.stringify({
+            systemInstruction: { parts: [{ text: SYSTEM }] },
             contents: msgs.filter((m) => m.role !== "system").map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })).slice(-20),
           }),
         },
@@ -123,7 +126,7 @@ function streamBot(msgs) {
       options: {
         method: "POST",
         headers: PROVIDERS[provider].headers(cfg.key),
-        body: JSON.stringify({ model, stream: true, messages: msgs.map((m) => ({ role: m.role, content: m.content })).slice(-20) }),
+        body: JSON.stringify({ model, stream: true, messages: [{ role: "system", content: SYSTEM }].concat(msgs.map((m) => ({ role: m.role, content: m.content }))).slice(-20) }),
       },
       parse: (json) => (json.choices && json.choices[0] && json.choices[0].delta && json.choices[0].delta.content) || "",
     };
