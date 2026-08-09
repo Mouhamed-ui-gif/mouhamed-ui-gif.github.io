@@ -12,6 +12,7 @@
       spring: ["🌸", "🌷", "🍃", "🌼"],
       summer: ["☀", "🌊", "⛅", "✨"],
       study: ["📚", "✦", "🌙", "📖"],
+      assistant: ["🧠", "✨", "🎯", "🌿"],
     }[season] || ["✦"];
     const count = Math.min(26, Math.floor(window.innerWidth / 55));
     for (let i = 0; i < count; i++) {

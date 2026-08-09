@@ -20,6 +20,7 @@
 [data-season="spring"] { --accent: #8fe3a0; --accent2: #d982ab; --glow: rgba(143, 227, 160, .35); }
 [data-season="summer"] { --accent: #ffd35c; --accent2: #ff9f45; --glow: rgba(255, 211, 92, .4); }
 [data-season="study"] { --accent: #a8c0ff; --accent2: #7c93e8; --glow: rgba(168, 192, 255, .4); }
+[data-season="assistant"] { --accent: #22d97a; --accent2: #22c7d9; --glow: rgba(34, 217, 122, .35); }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }

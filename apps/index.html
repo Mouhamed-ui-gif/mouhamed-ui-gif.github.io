@@ -26,42 +26,91 @@
 <header class="hub-hero">
   <div class="hub-hero-in">
     <span class="season-badge">🎡</span>
-    <h1 data-i18n="hero.title">أربعة مواسم · خمسة تطبيقات</h1>
-    <p data-i18n="hero.sub">كل تطبيق بأجوائه الخاصة، وخلفيات حقيقية وأصوات محيطية مركّبة بالكامل — مجاناً 100%</p>
+    <h1 data-i18n="hero.title">جميع المواسم · جميع الأدوات</h1>
+    <p data-i18n="hero.sub">الفصول الأربعة وتطبيقاتها كلها أمامك، مع مساعد ذكي يرافقك أثناء المذاكرة — هدوء، وقت، سؤال وجواب، ورفع أي شيء</p>
   </div>
 </header>
 
-<main class="hub-grid">
-  <a class="app-card reveal" href="business-assistant/" data-accent="#e8890c">
-    <div class="app-emoji">🍂</div>
-    <h2 data-i18n="a1.name">مساعد المشاريع</h2>
-    <p data-i18n="a1.desc">مستشار ذكي يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مدمج مجاني</p>
+<main class="hub-main">
+
+  <!-- featured: the assistant -->
+  <a class="assist-card reveal" href="assistant/" data-accent="#22d97a">
+    <div class="assist-emoji">🧠</div>
+    <div class="assist-info">
+      <h2 data-i18n="a6.name">مساعد المذاكرة</h2>
+      <p data-i18n="a6.desc">ضعه أمامك أثناء الدراسة: أصوات هادئة، بومودورو ينظّم وقتك، دردشة ذكية تجيبك، ومكان لرفع أي ملف تريد — كل شيء يبقى في متصفحك فقط</p>
+      <span class="assist-tags">
+        <span>🎧 هدوء</span><span>⏱ وقت</span><span>💬 سؤال</span><span>📁 رفع</span>
+      </span>
+    </div>
     <span class="app-arrow">→</span>
   </a>
-  <a class="app-card reveal" href="ai-chat/" data-accent="#e91e8c">
-    <div class="app-emoji">🌸</div>
-    <h2 data-i18n="a2.name">AI Chat</h2>
-    <p data-i18n="a2.desc">مساعد ذكي بمفتاحك الخاص — يبقى في متصفحك فقط، مجاني بالكامل</p>
-    <span class="app-arrow">→</span>
-  </a>
-  <a class="app-card reveal" href="timeflash/" data-accent="#38bdf8">
-    <div class="app-emoji">❄️</div>
-    <h2 data-i18n="a3.name">TimeFlash</h2>
-    <p data-i18n="a3.desc">كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه</p>
-    <span class="app-arrow">→</span>
-  </a>
-  <a class="app-card reveal" href="summerkit/" data-accent="#f59e0b">
-    <div class="app-emoji">☀️</div>
-    <h2 data-i18n="a4.name">Summer Kit</h2>
-    <p data-i18n="a4.desc">خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة</p>
-    <span class="app-arrow">→</span>
-  </a>
-  <a class="app-card reveal" href="study/" data-accent="#8b9cf5">
-    <div class="app-emoji">🌙</div>
-    <h2 data-i18n="a5.name">ركن المذاكرة</h2>
-    <p data-i18n="a5.desc">بومودورو ينظّم وقتك، أصوات هادئة للمذاكرة، ومهام تتابع إنجازك — بيئة دراسة مثالية</p>
-    <span class="app-arrow">→</span>
-  </a>
+
+  <!-- spring -->
+  <section class="season-block reveal" data-season-block="spring">
+    <h3 class="season-title"><span class="s-emoji">🌸</span> <span data-i18n="season.spring">الربيع</span></h3>
+    <div class="season-grid">
+      <a class="app-card reveal" href="ai-chat/" data-accent="#e91e8c">
+        <div class="app-emoji">🌸</div>
+        <h2 data-i18n="a2.name">AI Chat</h2>
+        <p data-i18n="a2.desc">مساعد ذكي يعمل فوراً بمفتاح مجاني مدمج — أو ضع مفتاحك الخاص إن أردت</p>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- summer -->
+  <section class="season-block reveal" data-season-block="summer">
+    <h3 class="season-title"><span class="s-emoji">☀️</span> <span data-i18n="season.summer">الصيف</span></h3>
+    <div class="season-grid">
+      <a class="app-card reveal" href="summerkit/" data-accent="#f59e0b">
+        <div class="app-emoji">☀️</div>
+        <h2 data-i18n="a4.name">Summer Kit</h2>
+        <p data-i18n="a4.desc">خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة</p>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- autumn -->
+  <section class="season-block reveal" data-season-block="autumn">
+    <h3 class="season-title"><span class="s-emoji">🍂</span> <span data-i18n="season.autumn">الخريف</span></h3>
+    <div class="season-grid">
+      <a class="app-card reveal" href="business-assistant/" data-accent="#e8890c">
+        <div class="app-emoji">🍂</div>
+        <h2 data-i18n="a1.name">مساعد المشاريع</h2>
+        <p data-i18n="a1.desc">مستشار ذكي يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مدمج مجاني</p>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- winter -->
+  <section class="season-block reveal" data-season-block="winter">
+    <h3 class="season-title"><span class="s-emoji">❄️</span> <span data-i18n="season.winter">الشتاء</span></h3>
+    <div class="season-grid">
+      <a class="app-card reveal" href="timeflash/" data-accent="#38bdf8">
+        <div class="app-emoji">❄️</div>
+        <h2 data-i18n="a3.name">TimeFlash</h2>
+        <p data-i18n="a3.desc">كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه</p>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- any season -->
+  <section class="season-block reveal" data-season-block="study">
+    <h3 class="season-title"><span class="s-emoji">🌙</span> <span data-i18n="season.any">لكل الفصول</span></h3>
+    <div class="season-grid">
+      <a class="app-card reveal" href="study/" data-accent="#8b9cf5">
+        <div class="app-emoji">🌙</div>
+        <h2 data-i18n="a5.name">ركن المذاكرة</h2>
+        <p data-i18n="a5.desc">بومودورو ينظّم وقتك، أصوات هادئة للمذاكرة، ومهام تتابع إنجازك — بيئة دراسة مثالية</p>
+        <span class="app-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
 </main>
 
 <p class="hub-back"><a href="../index.html" data-i18n="back">← العودة إلى الموقع الشخصي</a></p>
@@ -85,36 +134,42 @@ window.APP_LANGS = {
   ar: {
     meta: { title: "مركز المواسم 🌐" },
     brand: "مركز المواسم",
-    hero: { title: "أربعة مواسم · خمسة تطبيقات", sub: "كل تطبيق بأجوائه الخاصة، وخلفيات حقيقية وأصوات محيطية مركّبة بالكامل — مجاناً 100%" },
+    hero: { title: "جميع المواسم · جميع الأدوات", sub: "الفصول الأربعة وتطبيقاتها كلها أمامك، مع مساعد ذكي يرافقك أثناء المذاكرة — هدوء، وقت، سؤال وجواب، ورفع أي شيء" },
     a1: { name: "مساعد المشاريع", desc: "مستشار ذكي يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مدمج مجاني" },
     a2: { name: "AI Chat", desc: "مساعد ذكي يعمل فوراً بمفتاح مجاني مدمج — أو ضع مفتاحك الخاص إن أردت" },
     a3: { name: "TimeFlash", desc: "كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه" },
     a4: { name: "Summer Kit", desc: "خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة" },
     a5: { name: "ركن المذاكرة", desc: "بومودورو ينظّم وقتك، أصوات هادئة للمذاكرة، ومهام تتابع إنجازك — بيئة دراسة مثالية" },
+    a6: { name: "مساعد المذاكرة", desc: "ضعه أمامك أثناء الدراسة: أصوات هادئة، بومودورو ينظّم وقتك، دردشة ذكية تجيبك، ومكان لرفع أي ملف تريد — كل شيء يبقى في متصفحك فقط" },
+    season: { spring: "الربيع", summer: "الصيف", autumn: "الخريف", winter: "الشتاء", any: "لكل الفصول" },
     back: "← العودة إلى الموقع الشخصي",
     audio: { music: "موسيقى", rain: "مطر" }
   },
   fr: {
     meta: { title: "Centre des Saisons 🌐" },
     brand: "Centre des Saisons",
-    hero: { title: "Quatre saisons · Cinq applications", sub: "Chaque app a son ambiance, de vraies images et des ambiances sonores entièrement synthétisées — 100% gratuit" },
+    hero: { title: "Toutes les saisons · Tous les outils", sub: "Les quatre saisons et leurs applications devant vous, avec un assistant intelligent qui vous accompagne pendant vos études — calme, temps, questions-réponses et dépôt de tout fichier" },
     a1: { name: "Conseiller Projet", desc: "Conseiller intelligent qui construit votre projet étape par étape — fonctionne immédiatement avec une clé gratuite intégrée" },
     a2: { name: "AI Chat", desc: "Assistant intelligent qui fonctionne immédiatement avec une clé gratuite intégrée — ou votre propre clé" },
     a3: { name: "TimeFlash", desc: "Chronomètre, minuteur et pomodoro avec une touche hivernale" },
     a4: { name: "Summer Kit", desc: "Business plan, révision, générateur de sites et traducteur — quatre outils en un" },
     a5: { name: "Zone d'étude", desc: "Un pomodoro qui organise votre temps, des sons apaisants pour étudier et des tâches qui suivent vos progrès — l'environnement d'étude idéal" },
+    a6: { name: "Assistant d'étude", desc: "Mettez-le devant vous pendant l'étude : sons apaisants, pomodoro qui organise votre temps, chat intelligent qui vous répond, et un espace pour déposer tout fichier — tout reste dans votre navigateur" },
+    season: { spring: "Printemps", summer: "Été", autumn: "Automne", winter: "Hiver", any: "Pour toutes les saisons" },
     back: "← Retour au site personnel",
     audio: { music: "Musique", rain: "Pluie" }
   },
   en: {
     meta: { title: "Season Center 🌐" },
     brand: "Season Center",
-    hero: { title: "Four seasons · Five apps", sub: "Each app has its own vibe, real backdrops and fully synthesized ambient sounds — 100% free" },
+    hero: { title: "All seasons · All tools", sub: "All four seasons and their apps in front of you, plus a smart assistant that keeps you company while studying — calm, time, Q&A and uploading anything" },
     a1: { name: "Project Advisor", desc: "Smart advisor that builds your project plan step by step — works instantly with a free built-in key" },
     a2: { name: "AI Chat", desc: "Smart assistant that works instantly with a free built-in key — or your own key" },
     a3: { name: "TimeFlash", desc: "Stopwatch, timer and pomodoro with a winter touch" },
     a4: { name: "Summer Kit", desc: "Business plan, study, website generator and translator — four tools in one" },
     a5: { name: "Study Zone", desc: "A pomodoro that organizes your time, calming sounds for studying and tasks that track your progress — the ideal study environment" },
+    a6: { name: "Study Assistant", desc: "Keep it in front of you while studying: calming sounds, a pomodoro that organizes your time, a smart chat that answers you, and a place to upload any file — everything stays in your browser" },
+    season: { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter", any: "For every season" },
     back: "← Back to personal site",
     audio: { music: "Music", rain: "Rain" }
   }

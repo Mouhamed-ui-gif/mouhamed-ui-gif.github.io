@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="assistant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مساعد المذاكرة 🧠</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-season="assistant">
+
+<div class="season-particles"></div>
+
+<div class="bg-video-wrap">
+  <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+    poster="../img/autumn.jpg"
+    src="https://assets.mixkit.co/videos/10408/10408-2160.mp4"></video>
+  <div class="bg-tint"></div>
+</div>
+
+<nav class="topbar">
+  <div class="brand">🧠 <span data-i18n="brand">مساعد المذاكرة</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</nav>
+
+<main class="asst-wrap">
+
+  <header class="asst-head reveal">
+    <div class="asst-logo">🧠</div>
+    <h1 data-i18n="hero.title">مساعد المذاكرة</h1>
+    <p data-i18n="hero.sub">ضعني أمامك أثناء الدراسة — أجلب لك الهدوء، أنظّم وقتك، أجيب على أسئلتك، وأرفع أي شيء تريده. كل شيء يبقى في متصفحك فقط</p>
+  </header>
+
+  <div class="asst-grid">
+
+    <!-- calm -->
+    <section class="asst-card reveal">
+      <h2 class="card-title">🎧 <span data-i18n="calm.title">الهدوء</span></h2>
+      <p class="card-sub" data-i18n="calm.sub">أصوات محيطية مريحة للتركيز والاسترخاء</p>
+      <div class="audio-group">
+        <button class="audio-chip" data-audio="rain">🌧 <span data-i18n="audio.rain">مطر</span></button>
+        <button class="audio-chip" data-audio="birds">🐦 <span data-i18n="audio.birds">طيور</span></button>
+        <button class="audio-chip" data-audio="fire">🔥 <span data-i18n="audio.fire">نار</span></button>
+        <button class="audio-chip" data-audio="wind">💨 <span data-i18n="audio.wind">رياح</span></button>
+        <button class="audio-chip" data-audio="waves">🌊 <span data-i18n="audio.waves">أمواج</span></button>
+        <button class="audio-chip" data-audio="snow">❄ <span data-i18n="audio.snow">ثلج</span></button>
+        <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+      </div>
+      <div class="calm-vol">
+        <label class="calm-label" data-i18n="audio.vol">مستوى الصوت</label>
+        <input type="range" id="vol" min="0" max="1" step="0.05" value="0.45" aria-label="volume">
+      </div>
+    </section>
+
+    <!-- time -->
+    <section class="asst-card reveal">
+      <h2 class="card-title">⏱ <span data-i18n="time.title">الوقت</span></h2>
+      <p class="card-sub" data-i18n="time.sub">بومودورو ينظّم جلسات تركيزك</p>
+
+      <div class="pomo-top">
+        <div class="pomo-phase" id="pomoPhase" data-i18n="phase.work">وقت التركيز</div>
+      </div>
+
+      <div class="pomo-ring" id="pomoRing">
+        <div class="pomo-ring-in">
+          <div class="pomo-time" id="pomoTime">25:00</div>
+        </div>
+      </div>
+
+      <div class="pomo-msg" id="pomoMsg" hidden></div>
+
+      <div class="pomo-controls">
+        <button class="ctl" id="btnSkip" data-i18n="ctl.skip">تخطّي</button>
+        <button class="ctl start" id="btnStart" data-i18n="ctl.start">بدء</button>
+        <button class="ctl" id="btnReset" data-i18n="ctl.reset">تصفير</button>
+      </div>
+
+      <div class="pomo-settings">
+        <label class="mini-field">
+          <span data-i18n="set.work">تركيز (دق)</span>
+          <input type="number" id="setWork" min="1" max="120" value="25">
+        </label>
+        <label class="mini-field">
+          <span data-i18n="set.short">راحة قصيرة</span>
+          <input type="number" id="setShort" min="1" max="60" value="5">
+        </label>
+        <label class="mini-field">
+          <span data-i18n="set.long">راحة طويلة</span>
+          <input type="number" id="setLong" min="1" max="90" value="15">
+        </label>
+        <label class="mini-check">
+          <input type="checkbox" id="setAuto" checked>
+          <span data-i18n="set.auto">بدء تلقائي</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ask -->
+    <section class="asst-card asst-wide reveal">
+      <h2 class="card-title">💬 <span data-i18n="ask.title">سؤال ومساعدة</span></h2>
+      <p class="card-sub" data-i18n="ask.sub">اسألني أي شيء عن دروسك، مذاكرتك، أو حياتك — الرد فوراً وبمجاني</p>
+
+      <div class="chat-main" id="chatMain">
+        <div class="msg bot intro" id="introMsg">
+          <div class="avatar">🧠</div>
+          <div class="bubble" data-i18n="ask.intro">مرحباً! أنا مساعدك الشخصي للمذاكرة. اسألني عن أي درس، أعد لي شرحاً، أو ساعدني أركّز 🎯</div>
+        </div>
+      </div>
+
+      <form class="chat-input" id="chatForm">
+        <textarea id="chatText" rows="1" data-i18n-ph="ask.ph" placeholder="اكتب سؤالك هنا…" required></textarea>
+        <button class="send-btn" type="submit" aria-label="send">➤</button>
+        <button class="send-btn stop-btn" type="button" id="stopBtn" aria-label="stop" hidden title="⏹">■</button>
+      </form>
+    </section>
+
+    <!-- upload -->
+    <section class="asst-card asst-wide reveal">
+      <h2 class="card-title">📁 <span data-i18n="upload.title">رفع أي شيء</span></h2>
+      <p class="card-sub" data-i18n="upload.sub">ارفع ملفاتك — تُحفظ في متصفحك فقط، في متناولك دائماً للعودة إليها أو تحميلها</p>
+
+      <div class="dropzone" id="dropZone">
+        <div class="dz-inner">
+          <div class="dz-icon">⬆️</div>
+          <p data-i18n="upload.hint">اسحب الملفات هنا أو انقر للاختيار</p>
+          <button class="dz-btn" type="button" id="pickBtn" data-i18n="upload.pick">اختيار ملفات</button>
+          <input type="file" id="fileInput" multiple hidden>
+        </div>
+      </div>
+
+      <p class="file-title" data-i18n="upload.mine">ملفاتك</p>
+      <ul class="file-list" id="fileList"></ul>
+      <p class="file-empty" id="fileEmpty" data-i18n="upload.empty">لا ملفات بعد — ارفع أول ملف 🌱</p>
+    </section>
+
+  </div>
+</main>
+
+<script>window.APP_BASE="../";</script>
+<script src="../js/audio.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

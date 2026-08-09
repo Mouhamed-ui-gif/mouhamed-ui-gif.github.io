@@ -38,7 +38,7 @@ body {
 }
 .langs button.is-active { background: var(--accent); color: #171204; border-color: transparent; font-weight: 700; }
 
-.hub-hero { text-align: center; padding: 3.4rem 1.2rem 1.4rem; }
+.hub-hero { text-align: center; padding: 3.4rem 1.2rem 1rem; }
 .season-badge {
   display: inline-block; padding: .4rem 1.1rem; border-radius: 999px;
   background: rgba(245, 158, 11, .14); border: 1px solid rgba(245, 158, 11, .45);
@@ -47,7 +47,47 @@ body {
 .hub-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); margin: 0 0 .6rem; color: var(--text); font-weight: 900; }
 .hub-hero p { color: var(--muted); max-width: 46rem; margin: 0 auto; font-size: 1.02rem; }
 
-.hub-grid { flex: 1; max-width: 1060px; margin: 0 auto; padding: 1.4rem 1.2rem 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; width: 100%; }
+.hub-main { flex: 1; max-width: 1060px; margin: 0 auto; padding: 1.4rem 1.2rem 2rem; width: 100%; display: flex; flex-direction: column; gap: 1.6rem; }
+
+/* ===== featured assistant card ===== */
+.assist-card {
+  position: relative; display: flex; align-items: center; gap: 1.2rem; text-decoration: none;
+  background:
+    radial-gradient(500px 220px at 90% 0%, rgba(34, 217, 122, .22), transparent 60%),
+    linear-gradient(160deg, rgba(18, 34, 26, .9), rgba(9, 16, 12, .92));
+  border: 1px solid rgba(34, 217, 122, .5); border-radius: 22px; padding: 1.6rem 1.6rem;
+  transition: transform .3s, border-color .3s, box-shadow .3s; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 40px rgba(34, 217, 122, .12);
+}
+.assist-card:hover { transform: translateY(-6px); border-color: #22d97a; box-shadow: 0 24px 70px rgba(0, 0, 0, .6), 0 0 50px rgba(34, 217, 122, .22); }
+.assist-emoji {
+  flex: 0 0 auto; font-size: 3.4rem; width: 86px; height: 86px; display: grid; place-items: center;
+  border-radius: 22px; background: rgba(34, 217, 122, .16); border: 1px solid rgba(34, 217, 122, .4);
+  filter: drop-shadow(0 8px 20px rgba(34, 217, 122, .35));
+}
+.assist-info { flex: 1; min-width: 0; }
+.assist-info h2 { margin: 0 0 .35rem; font-size: 1.5rem; color: #eafff4; }
+.assist-info p { margin: 0 0 .8rem; color: #b9cfc4; font-size: .95rem; line-height: 1.7; max-width: 46rem; }
+.assist-tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+.assist-tags span {
+  font-size: .78rem; font-weight: 700; color: #c9ffdf; padding: .25rem .7rem; border-radius: 999px;
+  background: rgba(34, 217, 122, .14); border: 1px solid rgba(34, 217, 122, .35);
+}
+.assist-card .app-arrow { align-self: center; }
+
+/* ===== season blocks ===== */
+.season-block { display: flex; flex-direction: column; gap: .8rem; }
+.season-title {
+  display: flex; align-items: center; gap: .55rem; margin: 0;
+  font-size: 1.2rem; color: var(--text); font-weight: 800;
+  letter-spacing: .3px;
+}
+.s-emoji { font-size: 1.35rem; }
+.season-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.season-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+.season-block[data-season-block] .season-grid { grid-template-columns: 1fr; }
+.season-block[data-season-block] .app-card { max-width: 100%; }
+
 .app-card {
   position: relative; display: flex; flex-direction: column; gap: .5rem; text-decoration: none;
   background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 1.6rem 1.4rem;
