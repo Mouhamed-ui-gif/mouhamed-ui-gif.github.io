@@ -11,6 +11,7 @@
         contact: "تواصل",
       },
       hero: {
+        tag: "مرحباً، أنا",
         role: "مطوّر ويب · مهتم بالأمن السيبراني · رائد أعمال",
         sub: "أم البواقي، الجزائر — أبني مواقع متعددة اللغات وتطبيقات ذكاء اصطناعي.",
         ctaProjects: "عرض المشاريع",
@@ -83,6 +84,7 @@
         contact: "Contact",
       },
       hero: {
+        tag: "Bonjour, je suis",
         role: "Développeur Web · Passionné de cybersécurité · Entrepreneur",
         sub: "Oum El Bouaghi, Algérie — je crée des sites multilingues et des applications IA.",
         ctaProjects: "Voir les projets",
@@ -155,6 +157,7 @@
         contact: "Contact",
       },
       hero: {
+        tag: "Hi, I am",
         role: "Web Developer · Cybersecurity enthusiast · Entrepreneur",
         sub: "Oum El Bouaghi, Algeria — building multilingual websites and AI-powered apps.",
         ctaProjects: "View projects",

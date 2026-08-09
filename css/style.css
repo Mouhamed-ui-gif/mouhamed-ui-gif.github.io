@@ -151,13 +151,63 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-.hero-inner { position: relative; }
-
-.hero-terminal {
-  font-family: var(--font-mono);
-  color: var(--muted);
-  margin-bottom: 10px;
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
+/* intro card: layered "papers" + floating + mouse tilt */
+.intro-float {
+  width: 100%;
+  max-width: 780px;
+  animation: introFloat 7s ease-in-out infinite;
+}
+
+.intro-card {
+  position: relative;
+  width: 100%;
+  padding: 3rem 2.4rem 2.6rem;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(20, 32, 25, .82), rgba(10, 16, 12, .86));
+  border: 1px solid rgba(34, 217, 122, .28);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, .55),
+    0 10px 40px rgba(34, 217, 122, .1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* stacked colored papers behind the card */
+.intro-card::before,
+.intro-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  z-index: -1;
+  border: 1px solid rgba(55, 213, 232, .22);
+  background: linear-gradient(160deg, rgba(34, 217, 122, .2), rgba(55, 213, 232, .12));
+}
+.intro-card::before { transform: rotate(-2.6deg) translateY(16px) scale(.985); }
+.intro-card::after { transform: rotate(2.4deg) translateY(9px) scale(.995); opacity: .6; }
+
+@keyframes introFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-tag {
+  font-family: var(--font-mono);
+  color: var(--green);
+  margin-bottom: 14px;
+  font-size: 1.02rem;
+  letter-spacing: 1px;
+}
+.hero-tag .prompt { color: var(--muted); margin-inline-end: 6px; }
 
 .hero-name { line-height: 1.15; }
 
@@ -266,7 +316,6 @@ ul { list-style: none; }
 
 /* ===== Sections ===== */
 .section { padding: 90px 0; }
-.section-alt { background: var(--bg-alt); }
 
 .section-title {
   font-size: clamp(1.6rem, 4vw, 2.3rem);
@@ -464,68 +513,36 @@ ul { list-style: none; }
 .footer-term { font-family: var(--font-mono); color: var(--muted); font-size: .82rem; }
 
 /* ===== Cinematic ===== */
-.hero { overflow: hidden; }
-
-.hero-bg-layer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(4, 8, 6, .55), rgba(4, 8, 6, .75)),
-              url("../images/plane-wing.jpg") center/cover no-repeat;
-  animation: kenburns 30s ease-in-out infinite alternate;
-  z-index: 0;
-}
-@keyframes kenburns {
-  from { transform: scale(1) translate(0, 0); }
-  to { transform: scale(1.12) translate(-1.5%, 1.5%); }
-}
-
-.hero-video {
-  position: absolute;
+/* one fixed 4K video behind the whole site */
+#site-video {
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: .85;
-  z-index: 1;
-  filter: saturate(.9) contrast(1.05);
+  z-index: -1;
+  filter: saturate(1.05) contrast(1.06);
 }
-
-/* subtle darkening so the hero text stays readable over the video */
-.hero::after {
-  content: "";
-  position: absolute;
+.site-video-overlay {
+  position: fixed;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(4, 8, 6, .3), rgba(4, 8, 6, .5)),
-    radial-gradient(ellipse at 50% 60%, rgba(4, 8, 6, 0) 42%, rgba(4, 8, 6, .45) 100%);
-  z-index: 2;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(4, 8, 6, .4), rgba(4, 8, 6, .6));
   pointer-events: none;
 }
 
-.hero-inner { z-index: 3; }
-
-/* --- cinematic section backgrounds --- */
+/* sections sit on the video; cards keep their solid panels */
 .cine { position: relative; }
 .cine .container { position: relative; z-index: 2; }
-.cine-bg {
-  position: absolute;
-  inset: -20% 0;
-  background-position: center;
-  background-size: cover;
-  will-change: transform;
-  z-index: 0;
-}
-.cine-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(7, 12, 9, .82);
-  z-index: 1;
-}
-.cine::before {
+
+/* subtle glass so section text stays readable over the video */
+.cine::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--bg) 0%, transparent 14%, transparent 86%, var(--bg) 100%);
+  background: rgba(7, 12, 9, .34);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1;
   pointer-events: none;
 }
@@ -541,7 +558,7 @@ ul { list-style: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-bg-layer, .hero-video { animation: none !important; }
+  .intro-float { animation: none; }
 }
 
 /* ===== Responsive ===== */

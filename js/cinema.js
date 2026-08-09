@@ -40,24 +40,6 @@
     });
   }
 
-  /* ---------- Scroll parallax for cinematic sections ---------- */
-  function initSectionParallax() {
-    const sections = document.querySelectorAll("[data-parallax]");
-    if (!sections.length) return;
-    const update = () => {
-      sections.forEach((sec) => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        const speed = parseFloat(sec.getAttribute("data-parallax")) || 0.2;
-        const off = (window.innerHeight - rect.top) * -speed;
-        const bg = sec.querySelector(".cine-bg");
-        if (bg) bg.style.transform = "translateY(" + off.toFixed(1) + "px)";
-      });
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-  }
-
   /* ---------- Flying real videos: ensure playback ---------- */
   function initFlyingVideos() {
     document.querySelectorAll("video.auto-play").forEach((v) => {
@@ -74,10 +56,29 @@
     });
   }
 
+  /* ---------- 3D tilt for the intro card ---------- */
+  function initIntroTilt() {
+    if (reduced || window.matchMedia("(pointer: coarse)").matches) return;
+    const card = document.querySelector(".intro-card");
+    if (!card) return;
+    const range = 6;
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform =
+        "perspective(1200px) rotateX(" + (-py * range).toFixed(2) +
+        "deg) rotateY(" + (px * range).toFixed(2) + "deg)";
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "";
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initReveals();
     initMouseParallax();
-    initSectionParallax();
     initFlyingVideos();
+    initIntroTilt();
   });
 })();

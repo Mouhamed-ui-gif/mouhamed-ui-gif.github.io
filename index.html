@@ -71,6 +71,12 @@
 </head>
 <body>
 
+  <video id="site-video" class="auto-play" autoplay muted loop playsinline
+         poster="images/galaxy.jpg"
+         preload="metadata"
+         src="https://assets.mixkit.co/videos/10408/10408-2160.mp4"></video>
+  <div class="site-video-overlay" aria-hidden="true"></div>
+
   <!-- ===== Navbar ===== -->
   <header class="site-header">
     <div class="container nav-wrap">
@@ -102,23 +108,21 @@
 
     <!-- ===== Hero ===== -->
     <section class="hero" id="home">
-      <div class="hero-bg-layer" aria-hidden="true"></div>
-      <video class="hero-video auto-play" autoplay muted loop playsinline
-             poster="images/plane-wing.jpg"
-             preload="metadata"
-             src="https://videos.pexels.com/video-files/1943483/1943483-uhd_3840_2160_25fps.mp4"></video>
-
       <div class="container hero-inner" data-depth="0.12">
-        <p class="hero-terminal"><span class="prompt">$</span> whoami</p>
-        <h1 class="hero-name">
-          <span class="glitch" data-text="Mouhamed Ghennai">Mouhamed Ghennai</span>
-          <span class="hero-ar">محمد غناي</span>
-        </h1>
-        <p class="hero-role" data-i18n="hero.role">مطوّر ويب &middot; مهتم بالأمن السيبراني &middot; رائد أعمال</p>
-        <p class="hero-sub" data-i18n="hero.sub">أم البواقي، الجزائر — أبني مواقع متعددة اللغات وتطبيقات ذكاء اصطناعي.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects" data-i18n="hero.ctaProjects">عرض المشاريع</a>
-          <a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaContact">تواصل معي</a>
+        <div class="intro-float">
+          <div class="intro-card">
+            <p class="hero-tag"><span class="prompt">$</span> <span data-i18n="hero.tag">مرحباً، أنا</span></p>
+            <h1 class="hero-name">
+              <span class="glitch" data-text="Mouhamed Ghennai">Mouhamed Ghennai</span>
+              <span class="hero-ar">محمد غناي</span>
+            </h1>
+            <p class="hero-role" data-i18n="hero.role">مطوّر ويب &middot; مهتم بالأمن السيبراني &middot; رائد أعمال</p>
+            <p class="hero-sub" data-i18n="hero.sub">أم البواقي، الجزائر — أبني مواقع متعددة اللغات وتطبيقات ذكاء اصطناعي.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects" data-i18n="hero.ctaProjects">عرض المشاريع</a>
+              <a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaContact">تواصل معي</a>
+            </div>
+          </div>
         </div>
         <div class="terminal-box" aria-hidden="true">
           <span class="tb-title">guest@mouhamed:~$</span>
@@ -134,9 +138,7 @@
     </section>
 
     <!-- ===== About ===== -->
-    <section class="section cine" id="about" data-parallax="0.18">
-      <div class="cine-bg" style="background-image:url('images/sky-gold.jpg')" aria-hidden="true"></div>
-      <div class="cine-overlay" aria-hidden="true"></div>
+    <section class="section cine" id="about">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="about.title">من أنا</h2>
         <p class="section-sub reveal" data-i18n="about.sub">نبذة سريعة عني</p>
@@ -156,9 +158,7 @@
     </section>
 
     <!-- ===== Skills ===== -->
-    <section class="section section-alt cine" id="skills" data-parallax="0.15">
-      <div class="cine-bg" style="background-image:url('images/cyber-tech.jpg')" aria-hidden="true"></div>
-      <div class="cine-overlay" aria-hidden="true"></div>
+    <section class="section cine" id="skills">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="skills.title">المهارات</h2>
         <p class="section-sub reveal" data-i18n="skills.sub">ما أتقنه وأعمل به</p>
@@ -204,9 +204,7 @@
     </section>
 
     <!-- ===== Projects ===== -->
-    <section class="section cine" id="projects" data-parallax="0.2">
-      <div class="cine-bg" style="background-image:url('images/city-night.jpg')" aria-hidden="true"></div>
-      <div class="cine-overlay" aria-hidden="true"></div>
+    <section class="section cine" id="projects">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="projects.title">المشاريع</h2>
         <p class="section-sub reveal" data-i18n="projects.sub">أعمال بنيتها وبنيتها بيديّ</p>
@@ -289,9 +287,7 @@
     </section>
 
     <!-- ===== Business ===== -->
-    <section class="section section-alt cine" id="business" data-parallax="0.16">
-      <div class="cine-bg" style="background-image:url('images/skyline.jpg')" aria-hidden="true"></div>
-      <div class="cine-overlay" aria-hidden="true"></div>
+    <section class="section cine" id="business">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="business.title">خبرة الأعمال</h2>
         <p class="section-sub reveal" data-i18n="business.sub">من الشغف التقني إلى الواقع الميداني</p>
@@ -310,9 +306,7 @@
     </section>
 
     <!-- ===== Contact ===== -->
-    <section class="section cine" id="contact" data-parallax="0.14">
-      <div class="cine-bg" style="background-image:url('images/galaxy.jpg')" aria-hidden="true"></div>
-      <div class="cine-overlay" aria-hidden="true"></div>
+    <section class="section cine" id="contact">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="contact.title">تواصل معي</h2>
         <p class="section-sub reveal" data-i18n="contact.sub">سواء لمشروعك القادم أو مجرد مرح — أنا متاح</p>
