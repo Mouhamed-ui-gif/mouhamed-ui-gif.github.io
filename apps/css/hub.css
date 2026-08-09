@@ -10,8 +10,20 @@
   --shadow: 0 14px 40px rgba(0, 0, 0, .5);
 }
 
-body { background: radial-gradient(1200px 600px at 50% -10%, #1a2130 0%, #0b0d12 60%); min-height: 100dvh; display: flex; flex-direction: column; }
+body {
+  background:
+    radial-gradient(1200px 700px at 78% -10%, #231442 0%, transparent 62%),
+    radial-gradient(1100px 640px at 8% 112%, #0a1038 0%, transparent 62%),
+    radial-gradient(900px 500px at 50% 50%, #120b26 0%, transparent 70%),
+    #05060f;
+  min-height: 100dvh; display: flex; flex-direction: column;
+}
 
+/* ===== background: one legendary 4K video ===== */
+.hub-video { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+.hub-video video { width: 100%; height: 100%; object-fit: cover; opacity: .5; filter: saturate(.85) brightness(.9); }
+
+/* ===== content sits above the fixed video ===== */
 .topbar {
   position: sticky; top: 0; z-index: 60;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;

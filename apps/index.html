@@ -9,6 +9,11 @@
 </head>
 <body data-season="hub">
 
+<div class="hub-video" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="metadata"
+         src="https://videos.pexels.com/video-files/1943483/1943483-uhd_3840_2160_25fps.mp4"></video>
+</div>
+
 <nav class="topbar">
   <div class="brand">🌐 <span data-i18n="brand">مركز المواسم</span></div>
   <div class="langs">
@@ -21,8 +26,8 @@
 <header class="hub-hero">
   <div class="hub-hero-in">
     <span class="season-badge">🎡</span>
-    <h1 data-i18n="hero.title">أربعة مواسم · أربعة تطبيقات</h1>
-    <p data-i18n="hero.sub">كل تطبيق بموسمه الخاص، أجواء فيديو حقيقية، وأصوات محيطية مركّبة بالكامل — مجاناً 100%</p>
+    <h1 data-i18n="hero.title">أربعة مواسم · خمسة تطبيقات</h1>
+    <p data-i18n="hero.sub">كل تطبيق بأجوائه الخاصة، وخلفيات حقيقية وأصوات محيطية مركّبة بالكامل — مجاناً 100%</p>
   </div>
 </header>
 
@@ -51,6 +56,12 @@
     <p data-i18n="a4.desc">خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة</p>
     <span class="app-arrow">→</span>
   </a>
+  <a class="app-card reveal" href="study/" data-accent="#8b9cf5">
+    <div class="app-emoji">🌙</div>
+    <h2 data-i18n="a5.name">ركن المذاكرة</h2>
+    <p data-i18n="a5.desc">بومودورو ينظّم وقتك، أصوات هادئة للمذاكرة، ومهام تتابع إنجازك — بيئة دراسة مثالية</p>
+    <span class="app-arrow">→</span>
+  </a>
 </main>
 
 <p class="hub-back"><a href="../index.html" data-i18n="back">← العودة إلى الموقع الشخصي</a></p>
@@ -74,33 +85,36 @@ window.APP_LANGS = {
   ar: {
     meta: { title: "مركز المواسم 🌐" },
     brand: "مركز المواسم",
-    hero: { title: "أربعة مواسم · أربعة تطبيقات", sub: "كل تطبيق بموسمه الخاص، أجواء فيديو حقيقية، وأصوات محيطية مركّبة بالكامل — مجاناً 100%" },
+    hero: { title: "أربعة مواسم · خمسة تطبيقات", sub: "كل تطبيق بأجوائه الخاصة، وخلفيات حقيقية وأصوات محيطية مركّبة بالكامل — مجاناً 100%" },
     a1: { name: "مساعد المشاريع", desc: "مستشار ذكي يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مدمج مجاني" },
     a2: { name: "AI Chat", desc: "مساعد ذكي يعمل فوراً بمفتاح مجاني مدمج — أو ضع مفتاحك الخاص إن أردت" },
     a3: { name: "TimeFlash", desc: "كرونومتر، مؤقّت، وبومودورو بلمسة شتوية مع أجراس تنبيه" },
     a4: { name: "Summer Kit", desc: "خطة عمل، مذاكرة، مولد مواقع، ومترجم — أربع أدوات في حزمة واحدة" },
+    a5: { name: "ركن المذاكرة", desc: "بومودورو ينظّم وقتك، أصوات هادئة للمذاكرة، ومهام تتابع إنجازك — بيئة دراسة مثالية" },
     back: "← العودة إلى الموقع الشخصي",
     audio: { music: "موسيقى", rain: "مطر" }
   },
   fr: {
     meta: { title: "Centre des Saisons 🌐" },
     brand: "Centre des Saisons",
-    hero: { title: "Quatre saisons · Quatre applications", sub: "Chaque app a sa saison, des vraies vidéos et des ambiances sonores entièrement synthétisées — 100% gratuit" },
+    hero: { title: "Quatre saisons · Cinq applications", sub: "Chaque app a son ambiance, de vraies images et des ambiances sonores entièrement synthétisées — 100% gratuit" },
     a1: { name: "Conseiller Projet", desc: "Conseiller intelligent qui construit votre projet étape par étape — fonctionne immédiatement avec une clé gratuite intégrée" },
     a2: { name: "AI Chat", desc: "Assistant intelligent qui fonctionne immédiatement avec une clé gratuite intégrée — ou votre propre clé" },
     a3: { name: "TimeFlash", desc: "Chronomètre, minuteur et pomodoro avec une touche hivernale" },
     a4: { name: "Summer Kit", desc: "Business plan, révision, générateur de sites et traducteur — quatre outils en un" },
+    a5: { name: "Zone d'étude", desc: "Un pomodoro qui organise votre temps, des sons apaisants pour étudier et des tâches qui suivent vos progrès — l'environnement d'étude idéal" },
     back: "← Retour au site personnel",
     audio: { music: "Musique", rain: "Pluie" }
   },
   en: {
     meta: { title: "Season Center 🌐" },
     brand: "Season Center",
-    hero: { title: "Four seasons · Four apps", sub: "Each app has its season, real videos and fully synthesized ambient sounds — 100% free" },
+    hero: { title: "Four seasons · Five apps", sub: "Each app has its own vibe, real backdrops and fully synthesized ambient sounds — 100% free" },
     a1: { name: "Project Advisor", desc: "Smart advisor that builds your project plan step by step — works instantly with a free built-in key" },
     a2: { name: "AI Chat", desc: "Smart assistant that works instantly with a free built-in key — or your own key" },
     a3: { name: "TimeFlash", desc: "Stopwatch, timer and pomodoro with a winter touch" },
     a4: { name: "Summer Kit", desc: "Business plan, study, website generator and translator — four tools in one" },
+    a5: { name: "Study Zone", desc: "A pomodoro that organizes your time, calming sounds for studying and tasks that track your progress — the ideal study environment" },
     back: "← Back to personal site",
     audio: { music: "Music", rain: "Rain" }
   }
@@ -113,6 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const vol = document.getElementById("vol");
   vol.addEventListener("input", () => window.MGaudio && MGaudio.setVolume(+vol.value));
+  document.querySelectorAll(".hub-video video").forEach((v) => {
+    const p = v.play();
+    if (p) p.catch(() => {});
+  });
 });
 </script>
 </body>

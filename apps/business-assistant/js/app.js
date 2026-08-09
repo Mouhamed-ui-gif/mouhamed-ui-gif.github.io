@@ -21,7 +21,7 @@ window.APP_LANGS = {
     intro: "مرحباً! أنا مستشار المشاريع. أخبرني بفكرتك أو اضغط أي زر من الأسفل وسأبني معك مشروعك خطوة بخطوة 🍂",
     input: { ph: "صف فكرة مشروعك…" },
     chip: { idea: "💡 فكرة مشروع", plan: "📋 خطة عمل", market: "📊 دراسة السوق", name: "🏷 اسم تجاري", marketing: "📣 خطة تسويق" },
-    chat: { err: "خطأ: ", noNet: "لا يوجد اتصال بالإنترنت. حاول مجدداً" },
+    chat: { err: "خطأ: ", noNet: "لا يوجد اتصال بالإنترنت. حاول مجدداً", stop: "إيقاف الرد", stopped: "تم إيقاف الرد" },
     copy: "نسخ الرد", copied: "تم النسخ ✅", dl: "تحميل",
     audio: { leaves: "أوراق", rain: "مطر", thunder: "رعد", wind: "رياح", fire: "نار", music: "موسيقى" }
   },
@@ -32,7 +32,7 @@ window.APP_LANGS = {
     intro: "Bonjour ! Je suis votre conseiller de projets. Dites-moi votre idée ou cliquez sur un bouton ci-dessous 🍂",
     input: { ph: "Décrivez votre idée de projet…" },
     chip: { idea: "💡 Idée de projet", plan: "📋 Business plan", market: "📊 Étude de marché", name: "🏷 Nom commercial", marketing: "📣 Plan marketing" },
-    chat: { err: "Erreur : ", noNet: "Pas de connexion Internet. Réessayez" },
+    chat: { err: "Erreur : ", noNet: "Pas de connexion Internet. Réessayez", stop: "Arrêter la réponse", stopped: "Réponse arrêtée" },
     copy: "Copier", copied: "Copié ✅", dl: "Télécharger",
     audio: { leaves: "Feuilles", rain: "Pluie", thunder: "Tonnerre", wind: "Vent", fire: "Feu", music: "Musique" }
   },
@@ -43,7 +43,7 @@ window.APP_LANGS = {
     intro: "Hi! I'm your project advisor. Tell me your idea or tap a button below 🍂",
     input: { ph: "Describe your project idea…" },
     chip: { idea: "💡 Project idea", plan: "📋 Business plan", market: "📊 Market study", name: "🏷 Business name", marketing: "📣 Marketing plan" },
-    chat: { err: "Error: ", noNet: "No internet connection. Try again" },
+    chat: { err: "Error: ", noNet: "No internet connection. Try again", stop: "Stop reply", stopped: "Reply stopped" },
     copy: "Copy", copied: "Copied ✅", dl: "Download",
     audio: { leaves: "Leaves", rain: "Rain", thunder: "Thunder", wind: "Wind", fire: "Fire", music: "Music" }
   }
@@ -72,6 +72,8 @@ function addMsg(role, text) {
   return el;
 }
 
+let activeStream = null;
+
 async function ask(text) {
   const main = document.getElementById("chatMain");
   addMsg("user", text);
@@ -79,7 +81,20 @@ async function ask(text) {
   const el = bot.querySelector(".bubble");
   el.classList.add("loading");
   const sendBtn = document.querySelector(".send-btn");
+  const stopBtn = document.getElementById("stopBtn");
   sendBtn.disabled = true;
+  stopBtn.hidden = false;
+
+  const controller = new AbortController();
+  activeStream = { controller, el };
+  const stop = () => {
+    if (activeStream && activeStream.controller === controller) {
+      activeStream = null;
+      controller.abort();
+    }
+    sendBtn.disabled = false;
+    stopBtn.hidden = true;
+  };
 
   const msgs = [
     { role: "system", content: SYSTEM },
@@ -93,6 +108,7 @@ async function ask(text) {
       method: "POST",
       headers: { "Authorization": "Bearer " + CFG.key, "Content-Type": "application/json" },
       body: JSON.stringify({ model, stream: true, messages: msgs }),
+      signal: controller.signal,
     });
     if (!res.ok) {
       const t = await res.text().catch(() => "");
@@ -129,10 +145,13 @@ async function ask(text) {
         const acc = await tryModel(models[i]);
         el.classList.remove("loading");
         addCopyBtn(el, acc);
+        if (activeStream && activeStream.controller === controller) activeStream = null;
         sendBtn.disabled = false;
+        stopBtn.hidden = true;
         return;
       } catch (e) {
         lastErr = e;
+        if (e && e.name === "AbortError") throw e;
         if (!e.retryable) throw e;
         if (i < models.length - 1) await new Promise((r) => setTimeout(r, 600 * (i + 1)));
       }
@@ -140,10 +159,18 @@ async function ask(text) {
     throw lastErr;
   } catch (e) {
     el.classList.remove("loading");
+    if (activeStream && activeStream.controller === controller) activeStream = null;
+    sendBtn.disabled = false;
+    stopBtn.hidden = true;
+    if (e && e.name === "AbortError") {
+      el.classList.add("stopped");
+      const mark = " [" + d().chat.stopped + "]";
+      el.textContent = el.textContent ? el.textContent + mark : mark;
+      return;
+    }
     const dict = d();
     el.innerHTML = `<span class="err">${dict.chat.err}${e.message}</span>`;
     el.classList.add("err");
-    sendBtn.disabled = false;
   }
 }
 
@@ -175,6 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
   textarea.addEventListener("input", autoGrow);
   textarea.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+  });
+
+  document.getElementById("stopBtn").addEventListener("click", () => {
+    if (activeStream) activeStream.controller.abort();
   });
 
   form.addEventListener("submit", (e) => {

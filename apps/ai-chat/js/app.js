@@ -6,8 +6,8 @@ window.APP_LANGS = {
     hero: { title: "مساعدك الذكي", sub: "اسأل عن أي شيء — الرد يأتي مباشرة عبر مفتاحك الخاص (مجاني 100%)" },
     intro: "مرحباً! أنا مساعدك الشخصي. اكتب سؤالك بالعربية أو الفرنسية أو الإنجليزية 🌷",
     input: { ph: "اكتب رسالتك هنا…" },
-    set: { title: "الإعدادات", provider: "المزود", url: "عنوان الخادم (Base URL)", model: "الموديل", key: "مفتاح API", hint: "يعمل فوراً بمفتاح مجاني مدمج — يمكنك وضع مفتاحك الخاص إن أردت. كل شيء يُحفظ في متصفحك فقط.", builtin: "مفتاح مدمج مجاني", save: "حفظ", clear: "مسح المحادثة", saved: "تم الحفظ ✅", need: "أدخل المفتاح والموديل أولاً", empty: "لا توجد محادثة لمسحها" },
-    chat: { send: "إرسال", sending: "جارٍ التفكير…", err: "خطأ: ", noKey: "المزود المختار يحتاج مفتاحاً — ضعه من الإعدادات ⚙️", clear: "تم مسح المحادثة" },
+    set: { title: "الإعدادات", provider: "المزود", url: "عنوان الخادم (Base URL)", model: "الموديل", key: "مفتاح API", hint: "يعمل فوراً بمفتاح مجاني مدمج — يمكنك وضع مفتاحك الخاص إن أردت. كل شيء يُحفظ في متصفحك فقط.", builtin: "مفتاح مدمج مجاني", save: "حفظ", clear: "مسح المحادثة", saved: "تم الحفظ ✅", need: "أدخل المفتاح والموديل أولاً", empty: "لا توجد محادثة لمسحها", provOpenai: "OpenAI / Groq / OpenRouter (متوافق)", provAnthropic: "Anthropic Claude", provGemini: "Google Gemini" },
+    chat: { send: "إرسال", sending: "جارٍ التفكير…", err: "خطأ: ", noKey: "المزود المختار يحتاج مفتاحاً — ضعه من الإعدادات ⚙️", clear: "تم مسح المحادثة", stop: "إيقاف الرد", stopped: "تم إيقاف الرد" },
     audio: { birds: "طيور", rain: "مطر", wind: "رياح", music: "موسيقى" }
   },
   fr: {
@@ -16,8 +16,8 @@ window.APP_LANGS = {
     hero: { title: "Votre assistant intelligent", sub: "Posez n'importe quelle question — réponse directe avec VOTRE clé (100% gratuit)" },
     intro: "Bonjour ! Je suis votre assistant personnel. Écrivez votre question en arabe, français ou anglais 🌷",
     input: { ph: "Écrivez votre message…" },
-    set: { title: "Paramètres", provider: "Fournisseur", url: "URL de base", model: "Modèle", key: "Clé API", hint: "Fonctionne immédiatement avec une clé gratuite intégrée — vous pouvez mettre votre propre clé. Tout reste dans votre navigateur.", builtin: "Clé gratuite intégrée", save: "Enregistrer", clear: "Effacer la conversation", saved: "Enregistré ✅", need: "Entrez d'abord la clé et le modèle", empty: "Aucune conversation à effacer" },
-    chat: { send: "Envoyer", sending: "Réflexion…", err: "Erreur : ", noKey: "Ce fournisseur exige une clé — ajoutez-la via ⚙️", clear: "Conversation effacée" },
+    set: { title: "Paramètres", provider: "Fournisseur", url: "URL de base", model: "Modèle", key: "Clé API", hint: "Fonctionne immédiatement avec une clé gratuite intégrée — vous pouvez mettre votre propre clé. Tout reste dans votre navigateur.", builtin: "Clé gratuite intégrée", save: "Enregistrer", clear: "Effacer la conversation", saved: "Enregistré ✅", need: "Entrez d'abord la clé et le modèle", empty: "Aucune conversation à effacer", provOpenai: "OpenAI / Groq / OpenRouter (compatible)", provAnthropic: "Anthropic Claude", provGemini: "Google Gemini" },
+    chat: { send: "Envoyer", sending: "Réflexion…", err: "Erreur : ", noKey: "Ce fournisseur exige une clé — ajoutez-la via ⚙️", clear: "Conversation effacée", stop: "Arrêter la réponse", stopped: "Réponse arrêtée" },
     audio: { birds: "Oiseaux", rain: "Pluie", wind: "Vent", music: "Musique" }
   },
   en: {
@@ -26,8 +26,8 @@ window.APP_LANGS = {
     hero: { title: "Your smart assistant", sub: "Ask anything — replies come straight through YOUR own key (100% free)" },
     intro: "Hi! I'm your personal assistant. Ask me anything in Arabic, French or English 🌷",
     input: { ph: "Type your message…" },
-    set: { title: "Settings", provider: "Provider", url: "Base URL", model: "Model", key: "API key", hint: "Works instantly with a free built-in key — you can put your own key if you prefer. Everything stays in your browser.", builtin: "Free built-in key", save: "Save", clear: "Clear conversation", saved: "Saved ✅", need: "Enter the key and model first", empty: "No conversation to clear" },
-    chat: { send: "Send", sending: "Thinking…", err: "Error: ", noKey: "This provider requires a key — add it via ⚙️", clear: "Conversation cleared" },
+    set: { title: "Settings", provider: "Provider", url: "Base URL", model: "Model", key: "API key", hint: "Works instantly with a free built-in key — you can put your own key if you prefer. Everything stays in your browser.", builtin: "Free built-in key", save: "Save", clear: "Clear conversation", saved: "Saved ✅", need: "Enter the key and model first", empty: "No conversation to clear", provOpenai: "OpenAI / Groq / OpenRouter (compatible)", provAnthropic: "Anthropic Claude", provGemini: "Google Gemini" },
+    chat: { send: "Send", sending: "Thinking…", err: "Error: ", noKey: "This provider requires a key — add it via ⚙️", clear: "Conversation cleared", stop: "Stop reply", stopped: "Reply stopped" },
     audio: { birds: "Birds", rain: "Rain", wind: "Wind", music: "Music" }
   }
 };
@@ -73,15 +73,19 @@ function addMsg(role, text) {
   return d;
 }
 
+let activeStream = null;
+
 function streamBot(msgs) {
-  const cfg = loadCfg();
+  const controller = new AbortController();
   const bubble = addMsg("bot", "");
   const el = bubble.querySelector(".bubble");
   el.classList.add("loading");
+  activeStream = { controller, el };
   let acc = "";
   const append = (t) => { acc += t; el.textContent = acc; main.scrollTop = main.scrollHeight; };
   const done = (ok) => { el.classList.remove("loading"); return ok; };
 
+  const cfg = loadCfg();
   const main = document.getElementById("chatMain");
   const provider = cfg.provider || "openai";
 
@@ -142,7 +146,7 @@ function streamBot(msgs) {
 
   async function tryModel(model) {
     const req = build(model);
-    const res = await fetch(req.url, req.options);
+    const res = await fetch(req.url, { ...req.options, signal: controller.signal });
     if (!res.ok) {
       const txt = await res.text().catch(() => "");
       const err = new Error(res.status + (txt ? " — " + txt.slice(0, 200) : ""));
@@ -178,6 +182,7 @@ function streamBot(msgs) {
         return await tryModel(models[i]);
       } catch (e) {
         lastErr = e;
+        if (e && e.name === "AbortError") throw e;
         if (!e.retryable) throw e;
         if (i < models.length - 1) await new Promise((r) => setTimeout(r, 600 * (i + 1)));
       }
@@ -191,10 +196,20 @@ function streamBot(msgs) {
         el.textContent = "…";
       }
       done(true);
+      if (activeStream && activeStream.controller === controller) activeStream = null;
       return full || acc;
     })
     .catch((e) => {
       done(false);
+      if (activeStream && activeStream.controller === controller) activeStream = null;
+      const aborted = e && e.name === "AbortError";
+      if (aborted) {
+        el.classList.add("stopped");
+        const dict = window.APP_LANGS[document.documentElement.lang] || window.APP_LANGS.ar;
+        const stoppedMark = " [" + (dict.chat.stopped || "stopped") + "]";
+        el.textContent = acc ? acc + stoppedMark : stoppedMark;
+        return acc;
+      }
       el.classList.add("err");
       const dict = window.APP_LANGS[document.documentElement.lang] || window.APP_LANGS.ar;
       el.textContent = dict.chat.err + e.message;
@@ -214,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("chatForm");
   const textarea = document.getElementById("chatText");
   const sendBtn = form.querySelector(".send-btn");
+  const stopBtn = document.getElementById("stopBtn");
 
   function autoGrow() {
     textarea.style.height = "auto";
@@ -222,6 +238,13 @@ document.addEventListener("DOMContentLoaded", () => {
   textarea.addEventListener("input", autoGrow);
   textarea.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+  });
+
+  stopBtn.addEventListener("click", () => {
+    if (activeStream) activeStream.controller.abort();
+    stopBtn.hidden = true;
+    sendBtn.disabled = false;
+    textarea.focus();
   });
 
   form.addEventListener("submit", async (e) => {
@@ -240,10 +263,12 @@ document.addEventListener("DOMContentLoaded", () => {
     addMsg("user", text);
     textarea.value = ""; autoGrow();
     sendBtn.disabled = true;
+    stopBtn.hidden = false;
     const msgs = [...loadMsgs(), { role: "user", content: text }];
     saveMsgs(msgs);
     const reply = await streamBot(msgs);
     sendBtn.disabled = false;
+    stopBtn.hidden = true;
     if (reply) saveMsgs([...msgs, { role: "assistant", content: reply }]);
   });
 

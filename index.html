@@ -106,19 +106,7 @@
       <video class="hero-video auto-play" autoplay muted loop playsinline
              poster="images/plane-wing.jpg"
              preload="metadata"
-             src="https://videos.pexels.com/video-files/11085794/11085794-hd_1920_1006_30fps.mp4"></video>
-      <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-      <div class="grid-bg" data-depth="0.05" aria-hidden="true"></div>
-
-      <!-- real flying objects -->
-      <div class="fly fly-plane auto-play" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="none"
-               src="https://videos.pexels.com/video-files/20691359/20691359-sd_640_360_30fps.mp4"></video>
-      </div>
-      <div class="fly fly-rocket auto-play" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="none"
-               src="https://videos.pexels.com/video-files/28953923/12527160_960_540_30fps.mp4"></video>
-      </div>
+             src="https://videos.pexels.com/video-files/1943483/1943483-uhd_3840_2160_25fps.mp4"></video>
 
       <div class="container hero-inner" data-depth="0.12">
         <p class="hero-terminal"><span class="prompt">$</span> whoami</p>
@@ -160,7 +148,7 @@
           </div>
           <div class="about-stats reveal">
             <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-i18n="about.statLangs">لغات الموقع</span></div>
-            <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label" data-i18n="about.statProjects">مشاريع مطوّرة</span></div>
+            <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label" data-i18n="about.statProjects">مشاريع مطوّرة</span></div>
             <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label" data-i18n="about.statBusiness">خبرة تجارية</span></div>
           </div>
         </div>
@@ -229,7 +217,7 @@
               <img src="images/laptop-code.jpg" alt="Project Advisor app" loading="lazy">
             </div>
             <div class="project-body">
-              <h3>🍂 مساعد المشاريع</h3>
+              <h3 data-i18n="projects.takeoffName">🍂 مساعد المشاريع</h3>
               <p data-i18n="projects.takeoff">مستشار ذكي بموسم الخريف يبني معك خطة مشروعك خطوة بخطوة — يعمل فوراً بمفتاح مجاني مدمج.</p>
               <div class="project-tags"><span>AI</span><span>i18n</span><span>Audio</span></div>
               <a class="btn btn-ghost btn-sm" data-i18n="projects.open" href="apps/business-assistant/">افتح التطبيق →</a>
@@ -241,7 +229,7 @@
               <img src="images/code-screen.jpg" alt="AI Chat app" loading="lazy">
             </div>
             <div class="project-body">
-              <h3>🌸 AI Chat</h3>
+              <h3 data-i18n="projects.aiaName">🌸 AI Chat</h3>
               <p data-i18n="projects.aia">مساعد ذكي بموسم الربيع يرد فوراً بمفتاح مجاني مدمج — أو ضع مفتاحك الخاص إن أردت.</p>
               <div class="project-tags"><span>AI</span><span>Streaming</span><span>Audio</span></div>
               <a class="btn btn-ghost btn-sm" data-i18n="projects.open" href="apps/ai-chat/">افتح التطبيق →</a>
@@ -253,7 +241,7 @@
               <img src="images/network.jpg" alt="TimeFlash app" loading="lazy">
             </div>
             <div class="project-body">
-              <h3>❄️ TimeFlash</h3>
+              <h3 data-i18n="projects.timeflashName">❄️ TimeFlash</h3>
               <p data-i18n="projects.timeflash">ساعة الوقت الفوري بموسم الشتاء: كرونومتر، مؤقّت، وبومودورو مع أجراس تنبيه.</p>
               <div class="project-tags"><span>Timers</span><span>Pomodoro</span><span>Audio</span></div>
               <a class="btn btn-ghost btn-sm" data-i18n="projects.open" href="apps/timeflash/">افتح التطبيق →</a>
@@ -265,7 +253,7 @@
               <img src="images/server-room.jpg" alt="Summer Kit app" loading="lazy">
             </div>
             <div class="project-body">
-              <h3>☀️ Summer Kit</h3>
+              <h3 data-i18n="projects.myshopName">☀️ Summer Kit</h3>
               <p data-i18n="projects.myshop">حزمة الصيف: مولد خطط أعمال، مذاكرة، مولد مواقع HTML، ومترجم — أربع أدوات في تطبيق واحد.</p>
               <div class="project-tags"><span>Tools</span><span>Generator</span><span>Study</span></div>
               <a class="btn btn-ghost btn-sm" data-i18n="projects.open" href="apps/summerkit/">افتح التطبيق →</a>
@@ -274,10 +262,22 @@
 
           <article class="project-card reveal">
             <div class="project-media">
+              <img src="images/code-ai.jpg" alt="Study Zone app" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="projects.studyName">🌙 ركن المذاكرة</h3>
+              <p data-i18n="projects.study">بيئة دراسة مثالية: بومودورو يقول لك متى ترتاح، أصوات هادئة للتركيز، ومهام تتابع إنجازك.</p>
+              <div class="project-tags"><span>Pomodoro</span><span>Focus</span><span>Audio</span></div>
+              <a class="btn btn-ghost btn-sm" data-i18n="projects.open" href="apps/study/">افتح التطبيق →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
               <img src="images/galaxy.jpg" alt="Season Center hub" loading="lazy">
             </div>
             <div class="project-body">
-              <h3>🌐 مركز المواسم</h3>
+              <h3 data-i18n="projects.hubName">🌐 مركز المواسم</h3>
               <p data-i18n="projects.hub">بوابة الأربعة تطبيقات: كل موسم بخلفية فيديو حقيقية وأصوات محيطية مركّبة بالكامل.</p>
               <div class="project-tags"><span>Hub</span><span>Cinematic</span><span>Audio</span></div>
               <a class="btn btn-ghost btn-sm" data-i18n="projects.openHub" href="apps/">افتح المركز →</a>

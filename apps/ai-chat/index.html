@@ -45,6 +45,7 @@
   <form class="chat-input" id="chatForm">
     <textarea id="chatText" rows="1" data-i18n-ph="input.ph" placeholder="اكتب رسالتك هنا…" required></textarea>
     <button class="send-btn" type="submit" aria-label="send">➤</button>
+    <button class="send-btn stop-btn" type="button" id="stopBtn" aria-label="stop" hidden title="⏹">■</button>
   </form>
 </div>
 
@@ -58,9 +59,9 @@
     <label class="field">
       <span data-i18n="set.provider">المزود</span>
       <select id="sProvider">
-        <option value="openai">OpenAI / Groq / OpenRouter (متوافق)</option>
-        <option value="anthropic">Anthropic Claude</option>
-        <option value="gemini">Google Gemini</option>
+        <option value="openai" data-i18n="set.provOpenai">OpenAI / Groq / OpenRouter (متوافق)</option>
+        <option value="anthropic" data-i18n="set.provAnthropic">Anthropic Claude</option>
+        <option value="gemini" data-i18n="set.provGemini">Google Gemini</option>
       </select>
     </label>
     <label class="field">

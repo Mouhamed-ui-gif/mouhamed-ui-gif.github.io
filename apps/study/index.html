@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-season="study">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ركن المذاكرة 🌙</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-season="study">
+
+<div class="season-particles"></div>
+
+<div class="bg-video-wrap">
+  <div class="season-bg" style="background-image:url('../img/summer.jpg')"></div>
+  <div class="bg-tint"></div>
+</div>
+
+<nav class="topbar">
+  <div class="brand">🌙 <span data-i18n="brand">ركن المذاكرة</span></div>
+  <div class="langs">
+    <button data-lang="ar" class="is-active">عربية</button>
+    <button data-lang="fr">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</nav>
+
+<main class="study-wrap">
+
+  <header class="study-head reveal">
+    <h1 data-i18n="hero.title">ركن المذاكرة</h1>
+    <p data-i18n="hero.sub">أجواء هادئة، أصوات مريحة، وبومودورو ينظّم وقتك — 25 دقيقة تركيز ثم 5 دقائق راحة</p>
+  </header>
+
+  <!-- stats -->
+  <section class="stats-row reveal">
+    <div class="stat-card">
+      <span class="stat-num" id="statSessions">0</span>
+      <span class="stat-label" data-i18n="stats.sessions">جلسات اليوم</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="statFocus">0</span>
+      <span class="stat-label" data-i18n="stats.focusMin">دقائق تركيز</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" id="statTasks">0</span>
+      <span class="stat-label" data-i18n="stats.tasks">مهام مكتملة</span>
+    </div>
+  </section>
+
+  <div class="study-grid">
+
+    <!-- pomodoro -->
+    <section class="pomodoro-card reveal">
+      <div class="pomo-top">
+        <div class="pomo-phase" id="pomoPhase" data-i18n="phase.work">وقت التركيز</div>
+        <div class="pomo-task" id="pomoTask">—</div>
+      </div>
+
+      <div class="pomo-ring" id="pomoRing">
+        <div class="pomo-time" id="pomoTime">25:00</div>
+        <div class="pomo-cycles" id="pomoCycles"></div>
+      </div>
+
+      <div class="pomo-msg" id="pomoMsg" hidden></div>
+
+      <div class="pomo-controls">
+        <button class="ctl" id="btnSkip" data-i18n="ctl.skip">تخطّي</button>
+        <button class="ctl start" id="btnStart" data-i18n="ctl.start">بدء</button>
+        <button class="ctl" id="btnReset" data-i18n="ctl.reset">تصفير</button>
+      </div>
+
+      <div class="pomo-settings">
+        <label class="mini-field">
+          <span data-i18n="set.work">تركيز (دق)</span>
+          <input type="number" id="setWork" min="1" max="120" value="25">
+        </label>
+        <label class="mini-field">
+          <span data-i18n="set.short">راحة قصيرة</span>
+          <input type="number" id="setShort" min="1" max="60" value="5">
+        </label>
+        <label class="mini-field">
+          <span data-i18n="set.long">راحة طويلة</span>
+          <input type="number" id="setLong" min="1" max="90" value="15">
+        </label>
+        <label class="mini-check">
+          <input type="checkbox" id="setAuto" checked>
+          <span data-i18n="set.auto">بدء تلقائي</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- tasks -->
+    <section class="tasks-card reveal">
+      <h2 data-i18n="tasks.title">المهام</h2>
+      <form class="task-add" id="taskForm">
+        <input id="taskText" type="text" data-i18n-ph="tasks.addPh" placeholder="أضف مهمة للمذاكرة…" required>
+        <button class="add-btn" type="submit">+</button>
+      </form>
+      <ul class="task-list" id="taskList"></ul>
+      <p class="task-empty" id="taskEmpty" data-i18n="tasks.empty">لا مهام بعد — أضف أول مهمة 🌱</p>
+    </section>
+
+  </div>
+</main>
+
+<!-- audio bar -->
+<footer class="audio-bar">
+  <div class="audio-group">
+    <button class="audio-chip" data-audio="rain">🌧 <span data-i18n="audio.rain">مطر</span></button>
+    <button class="audio-chip" data-audio="birds">🐦 <span data-i18n="audio.birds">طيور</span></button>
+    <button class="audio-chip" data-audio="fire">🔥 <span data-i18n="audio.fire">نار</span></button>
+    <button class="audio-chip" data-audio="wind">💨 <span data-i18n="audio.wind">رياح</span></button>
+    <button class="audio-chip" data-audio="waves">🌊 <span data-i18n="audio.waves">أمواج</span></button>
+    <button class="audio-chip" data-audio="snow">❄ <span data-i18n="audio.snow">ثلج</span></button>
+    <button class="audio-chip" data-audio="music">🎵 <span data-i18n="audio.music">موسيقى</span></button>
+  </div>
+  <div class="audio-vol">
+    <input type="range" id="vol" min="0" max="1" step="0.05" value="0.45" aria-label="volume">
+  </div>
+</footer>
+
+<script>window.APP_BASE="../";</script>
+<script src="../js/audio.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

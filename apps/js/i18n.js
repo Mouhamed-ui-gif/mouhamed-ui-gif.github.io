@@ -27,9 +27,19 @@
       if (v !== undefined) el.placeholder = v;
     });
 
+    document.querySelectorAll("option[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const parts = key.split(".");
+      let v = dict;
+      for (const p of parts) v = v && v[p];
+      if (v !== undefined) el.textContent = v;
+    });
+
     document.querySelectorAll("[data-lang]").forEach((b) => {
       b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
     });
+
+    document.dispatchEvent(new CustomEvent("mg:lang", { detail: { lang } }));
   }
 
   function init() {
