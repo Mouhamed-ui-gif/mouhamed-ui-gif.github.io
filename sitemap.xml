@@ -1,13 +1,43 @@
-https://mouhamed-ui-gif.github.io/
-https://mouhamed-ui-gif.github.io/#home
-https://mouhamed-ui-gif.github.io/#about
-https://mouhamed-ui-gif.github.io/#skills
-https://mouhamed-ui-gif.github.io/#projects
-https://mouhamed-ui-gif.github.io/#business
-https://mouhamed-ui-gif.github.io/#contact
-https://mouhamed-ui-gif.github.io/apps/
-https://mouhamed-ui-gif.github.io/apps/business-assistant/
-https://mouhamed-ui-gif.github.io/apps/ai-chat/
-https://mouhamed-ui-gif.github.io/apps/timeflash/
-https://mouhamed-ui-gif.github.io/apps/summerkit/
-https://mouhamed-ui-gif.github.io/apps/study/
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/assistant/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/business-assistant/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/ai-chat/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/timeflash/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/summerkit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mouhamed-ui-gif.github.io/apps/study/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
