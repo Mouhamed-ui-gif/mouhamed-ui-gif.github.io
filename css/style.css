@@ -365,15 +365,37 @@ ul { list-style: none; }
 /* ===== About ===== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 34px;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
   align-items: center;
+}
+
+.about-photo {
+  position: relative;
+  border-radius: 22px;
+  padding: 6px;
+  background: conic-gradient(from 0deg, var(--gold), var(--violet), var(--teal), var(--rose), var(--gold));
+  box-shadow: 0 0 34px var(--glow);
+}
+.about-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: radial-gradient(120% 60% at 50% 0%, rgba(255, 255, 255, .22), transparent 55%);
+  pointer-events: none;
+}
+.about-photo img {
+  width: 100%;
+  border-radius: 17px;
+  display: block;
 }
 
 .about-card p { margin-bottom: 14px; color: #b9ccc1; }
 .about-card strong { color: var(--green); }
 
 .about-stats {
+  margin-top: 44px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
@@ -391,6 +413,7 @@ ul { list-style: none; }
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--green);
+  text-shadow: 0 0 18px var(--glow);
 }
 .stat-label { color: var(--muted); font-size: .85rem; }
 
@@ -774,6 +797,115 @@ ul { list-style: none; }
   .intro-float { animation: none; }
 }
 
+/* ===== Glossy / shiny ===== */
+@property --rot {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* rotating conic ring around the hero avatar */
+.hero-photo {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 26px;
+}
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  background: conic-gradient(from var(--rot), var(--gold), var(--violet), var(--teal), var(--rose), var(--gold));
+  animation: ringRotate 4s linear infinite;
+  box-shadow: 0 0 30px var(--glow), 0 0 70px rgba(231, 200, 120, .18);
+}
+@keyframes ringRotate { to { --rot: 360deg; } }
+.hero-photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0a0c10;
+  display: block;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 18%, rgba(255, 255, 255, .32), transparent 55%);
+  pointer-events: none;
+}
+
+/* shimmering gradient titles */
+.section-title {
+  background: linear-gradient(90deg, var(--gold), var(--violet), var(--teal), var(--rose), var(--gold));
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer { to { background-position: 220% center; } }
+
+.hero-ar {
+  background: linear-gradient(90deg, var(--gold), var(--violet), var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* glossy glass highlight on panels */
+.project-card,
+.skill-card,
+.exp-card,
+.value-card,
+.contact-link,
+.stat,
+.business-quote {
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(255, 255, 255, .05), transparent 55%),
+    var(--panel);
+}
+
+/* shine sweep across cards */
+.project-card,
+.exp-card,
+.skill-card {
+  position: relative;
+  overflow: hidden;
+}
+.project-card::after,
+.exp-card::after,
+.skill-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .1), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: shine 5.5s ease-in-out infinite;
+}
+@keyframes shine {
+  0% { left: -120%; }
+  60% { left: 160%; }
+  100% { left: 160%; }
+}
+
+/* glossy primary button */
+.btn-primary {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 55%);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .nav {
@@ -797,7 +929,9 @@ ul { list-style: none; }
   .tl-card { grid-template-columns: 1fr; }
   .tl-media { aspect-ratio: 16 / 9; }
   .business-strip { grid-template-columns: 1fr; }
-  .about-grid, .business-card { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { max-width: 320px; margin-inline: auto; }
+  .business-card { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
